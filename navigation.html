@@ -1,0 +1,283 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body class="gamingsite-home">
+  
+
+<header class="header-container" id="header">
+<!--  NAVIGATION BAR  -->
+  <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+    <a class="navbar-brand" href="#home" title="Home">
+      <img src="/static/images/logo.png" width="50" height="50" alt="Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#pc">PC</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#playstation">Playstation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#xbox">Xbox</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#nintendo">Nintendo</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#cart">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#login">
+            <i class="fa-solid fa-right-to-bracket"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<!--  END OF NAVIGATION BAR -->
+</header>
+<div class="main-content">
+<div class="home-container">
+  <div class="highlight-container top-banner">  
+    <div class="header-top-gradient" style="background: 
+    linear-gradient(#041010 0%, transparent 100%); opacity: 0.6;">
+    <img src="/static/images/eldenring2.jpg" alt="Elden Ring">
+    </div>
+  </div>
+<div class="product-trening">
+  <div class="headline">
+    <h2>Trending</h2>
+    <a href="#" title="Trending" class="button button-secondary">View all</a>
+  </div>
+  <div class="listing-games">
+    <!-- START CODE GAME 1-->
+    <div class="item" id="games-item-1">
+      <a class="cover video" href="#">
+        <picture>
+          <img class="picture" data-src="#" alt="Marvel's Spider Man: Miles Morales" src="/static/images/spiderman.jpg" loading="lazy" onload="lazyLoadImage(this)">
+          </picture>
+          <video preload="none" loop muted playsinline >
+            <source src="#" type="video/webm">
+          </video>
+      </a>
+          <div class="information">
+            <div class="text">
+              <div class="name">
+                <span class="title">Marvel's Spider-Man Morales</span>
+              </div>
+            </div>
+         <div class="price">
+            "2980.99"
+          <span>RSD</span>
+            </div>
+          </div>
+        </div>
+        <!-- END CODE GAME 1 -->
+
+        <!-- START CODE GAME 2-->
+      <div class="item" id="games-item-2">
+      <a class="cover video" href="#">
+        <picture>
+          <img class="picture" data-src="#" alt="Frozen Flame" src="/static/images/frozenflame.jpg" loading="lazy" onload="lazyLoadImage(this)">
+          </picture>
+          <video preload="none" loop muted playsinline >
+            <source src="#" type="video/webm">
+          </video>
+      </a>
+          <div class="information">
+            <div class="text">
+              <div class="name">
+                <span class="title">Frozen Flame</span>
+              </div>
+            </div>
+         <div class="price">
+            "1567.68"
+          <span>RSD</span>
+            </div>
+          </div>
+        </div>
+        <!-- END CODE GAME 2-->
+
+        <!-- START CODE GAME 3-->
+        <div class="item" id="games-item-3">
+          <a class="cover video" href="#">
+            <picture>
+              <img class="picture" data-src="#" alt="Football Manager 2023" src="/static/images/footballmanager.jpg" loading="lazy" onload="lazyLoadImage(this)">
+              </picture>
+              <video preload="none" loop muted playsinline >
+                <source src="#" type="video/webm">
+              </video>
+          </a>
+              <div class="information">
+                <div class="text">
+                  <div class="name">
+                    <span class="title">Football Manager 2023</span>
+                  </div>
+                </div>
+             <div class="price">
+                "5435.45"
+              <span>RSD</span>
+                </div>
+              </div>
+            </div>
+          <!-- END CODE GAME 3-->
+          <!-- START CODE GAME 4-->
+          <div class="item" id="games-item-4">
+            <a class="cover video" href="#">
+              <picture>
+                <img class="picture" data-src="#" alt="WCR Generations Fully Loaded Edition" src="/static/images/WRC.jpg" loading="lazy" onload="lazyLoadImage(this)">
+                </picture>
+                <video preload="none" loop muted playsinline >
+                  <source src="#" type="video/webm">
+                </video>
+            </a>
+                <div class="information">
+                  <div class="text">
+                    <div class="name">
+                      <span class="title">WCR Generations Fully Loaded Edition</span>
+                    </div>
+                  </div>
+               <div class="price">
+                  "2435.45"
+                <span>RSD</span>
+                  </div>
+                </div>
+              </div>
+              <!-- END CODE GAME 4-->
+              <!-- START CODE GAME 5-->
+              <div class="item" id="games-item-5">
+                <a class="cover video" href="#">
+                  <picture>
+                    <img class="picture" data-src="#" alt="Fire Emblem" src="/static/images/fireemblemengage.jpg" loading="lazy" onload="lazyLoadImage(this)">
+                    </picture>
+                    <video preload="none" loop muted playsinline >
+                      <source src="#" type="video/webm">
+                    </video>
+                </a>
+                    <div class="information">
+                      <div class="text">
+                        <div class="name">
+                          <span class="title">Fire Emblem Engage Switch</span>
+                        </div>
+                      </div>
+                   <div class="price">
+                      "6435.45"
+                    <span>RSD</span>
+                      </div>
+                    </div>
+                  </div>
+                <!-- END CODE GAME 5-->
+                <!-- START CODE GAME 6 -->
+                  <div class="item" id="games-item-6">
+                    <a class="cover video" href="#">
+                      <picture>
+                        <img class="picture" data-src="#" alt="Persona 3 Portable" src="/static/images/persona3.jpg" loading="lazy" onload="lazyLoadImage(this)">
+                        </picture>
+                        <video preload="none" loop muted playsinline >
+                          <source src="#" type="video/webm">
+                        </video>
+                    </a>
+                        <div class="information">
+                          <div class="text">
+                            <div class="name">
+                              <span class="title">Persona 3 Portable</span>
+                            </div>
+                          </div>
+                       <div class="price">
+                          "1935.45"
+                        <span>RSD</span>
+                          </div>
+                        </div>
+                      </div>
+                <!-- END CODE GAME 6-->
+                <!-- START CODE GAME 7-->
+                <div class="item" id="games-item-7">
+                  <a class="cover video" href="#">
+                    <picture>
+                      <img class="picture" data-src="#" alt="Mount & Blade II" src="/static/images/mountandblade.jpg" loading="lazy" onload="lazyLoadImage(this)">
+                      </picture>
+                      <video preload="none" loop muted playsinline >
+                        <source src="#" type="video/webm">
+                      </video>
+                  </a>
+                      <div class="information">
+                        <div class="text">
+                          <div class="name">
+                            <span class="title">Mount & Blade II: Bannerlord</span>
+                          </div>
+                        </div>
+                     <div class="price">
+                        "1935.45"
+                      <span>RSD</span>
+                        </div>
+                      </div>
+                    </div>
+                <!-- END CODE GAME 7-->
+                <!-- START CODE GAME 8-->
+                <div class="item" id="games-item-8">
+                  <a class="cover video" href="#">
+                    <picture>
+                      <img class="picture" data-src="#" alt="Rain World: Downpour" src="/static/images/rainworld.jpg" loading="lazy" onload="lazyLoadImage(this)">
+                      </picture>
+                      <video preload="none" loop muted playsinline >
+                        <source src="#" type="video/webm">
+                      </video>
+                  </a>
+                      <div class="information">
+                        <div class="text">
+                          <div class="name">
+                            <span class="title">Rain World: Downpour</span>
+                          </div>
+                        </div>
+                     <div class="price">
+                        "1935.45"
+                      <span>RSD</span>
+                        </div>
+                      </div>
+                    </div>
+                <!-- END CODE GAME 8-->
+                <!-- START CODE GAME 9-->
+                <div class="item" id="games-item-9">
+                  <a class="cover video" href="#">
+                    <picture>
+                      <img class="picture" data-src="#" alt="Farming Simulator 22 Platinum Edition" src="/static/images/farmingsimulator22.jpg" loading="lazy" onload="lazyLoadImage(this)">
+                      </picture>
+                      <video preload="none" loop muted playsinline >
+                        <source src="#" type="video/webm">
+                      </video>
+                  </a>
+                      <div class="information">
+                        <div class="text">
+                          <div class="name">
+                            <span class="title">Farming Simulator 22 Platinum Edition</span>
+                          </div>
+                        </div>
+                     <div class="price">
+                        "2935.45"
+                      <span>RSD</span>
+                        </div>
+                      </div>
+                    </div>
+                <!-- END CODE GAME 9-->
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</body>
+  <style>
+
+    .nav-item:hover {
+      background-color: darkgray;
+    }
+  </style>
+
+{% endblock %}
