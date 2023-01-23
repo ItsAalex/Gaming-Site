@@ -1,4 +1,5 @@
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, url_for, request, redirect, session
+from werkzeug.security import generate_password_hash, check_password_hash 
 import mariadb
 import mysql.connector
 
@@ -14,6 +15,22 @@ kursor = konekcija.cursor(dictionary=True) # cursor = variable that allows us to
 app = Flask(__name__)
 
 #logic of the application
+
+@app.route('/login', methods=['GET','POST'])
+def login():
+    if request.method == 'GET':
+        return render_template('login.html')
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+        hashed_password = generate_password_hash(password)
+        # Insert the user's email and hashed password into the database
+        kursor.execute(f"INSERT INTO korisnik (email, password_hash) VALUES ('{email}', '{hashed_password}')")
+        konekcija.commit()
+        return redirect(url_for("render_navigation"))
+
+
+
 @app.route('/', methods=['GET','POST']) 
 
 def render_navigation(): #this function will handle requests to the home page route
