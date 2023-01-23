@@ -1,30 +1,48 @@
-from flask import Flask, render_template, url_for, request, redirect, session
-from werkzeug.security import generate_password_hash, check_password_hash 
+from flask import Flask, render_template, jsonify, request
 import mariadb
 import mysql.connector
 
 konekcija = mysql.connector.connect(
-    passwd="", # lozinka za bazu
-    user="root", # korisničko ime
-    database="gaming-site", # ime baze     
-    port=3306, # port na kojem je mysql server 
-    auth_plugin='mysql_native_password' # ako se koristi mysql 8.x  
+    passwd="", # password for the database
+    user="root", # username
+    database="gaming-site", # database name     
+    port=3306, # port on which the mysql server is running 
+    auth_plugin='mysql_native_password' # if you are using mysql 8.x  
 )
-kursor = konekcija.cursor(dictionary=True)# kursor = promenljiva koja nam sluzi da se povezemo sa bazom, nad njom izvrsavamo upite
-                                           #(veza izmedju app i baze)
-#deklaracija aplikacije
+kursor = konekcija.cursor(dictionary=True) # cursor = variable that allows us to connect to the database, we use it to execute queries
+                                           # (connection between app and the database)
 app = Flask(__name__)
 
-#logika aplikacije
-@app.route('/', methods=['GET','POST']) # "/" moze da ostane za ovo, a login neka se desava po zelji
+#logic of the application
+@app.route('/', methods=['GET','POST']) 
 
-def render_navigation() -> 'html':
-    return render_template('navigation.html')
+def render_navigation(): #this function will handle requests to the home page route
+    search_term = request.args.get('q') # This line retrieves the search term from the request. The request.args object is a 
+                                        # dictionary-like object that allows you to access the request's query string parameters. 
+                                        # The get() method retrieves the value of the q parameter, which should be the search term.
+    if search_term:
+        return jsonify(search_games_in_database(search_term))# returning result as JSON obj.Jsonify func is used to convert result of search func to json obj and send it to client
+    else:
+        return render_template('navigation.html')
+
+@app.route('/trending-games', methods = ['GET'])
+
+def trending_games():
+    kursor.execute("SELECT * FROM produkti ORDER BY popularity DESC")
+    trending_games = kursor.fetchall()
+    return jsonify(trending_games)
 
 @app.route('/primer', methods = ['GET'])
 
 def render_primer() -> 'html':
     return render_template('primer.html')
 
-#da aplikacija stalno bude upaljena
+def search_games_in_database(search_term):
+    kursor.execute(f"SELECT * FROM produkti WHERE name LIKE '%{search_term}%'")
+    search_results = kursor.fetchall()
+    return search_results
+
+# to keep the application running
 app.run(debug = True)
+konekcija.close()
+
