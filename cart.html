@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-------------------------------------------------- CART PAGE--------------------------------------------------------->
+<head>
+    <script src="/static/cart.js"></script>
+</head>
+<body class = "cart-page">
+    <header class="header-cart">
+        <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+            <a class="navbar-brand" href="{{url_for('render_navigation')}}" title="Home">
+              <img class="logo" src="/static/images/logos.png" width="50" height="50" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="#pc">PC</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="#playstation">Playstation</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="#xbox">Xbox</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="#nintendo">Nintendo</a>
+                </li>
+              </ul>
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="{{url_for('render_cart')}}">
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="{{url_for('render_login')}}">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+</header>
+<div class="main-content">
+    <div class="cart-container">
+        <div class ="cart-left">
+            <div class="cart-section">
+                <h2>Cart</h2>
+            </div>
+            <div class="cart-listing">
+                <div class="cart-empty">
+                    <div class="icon-cart">
+                      <i class="fa-solid fa-cart-shopping"></i>
+                        <!--<img class="icart" data-src="#" alt="icon cart" src=""  loading="lazy" onload="lazyLoadImage(this)"> -->
+                    </div>
+                    <h2 class="title">Your cart is empty</h2>
+                    <span class="content">You didn't add any item in your cart yet. Browse the website to find amazing deals!</span>
+                    <a href="#" class="button button-secondary">Discover games</a>
+                </div>
+            </div>
+        </div>
+        <div class= "cart-right">
+            <h2>Summary</h2>
+            <div class="cart-summary">
+                <div class="summary-row"><span>Official price</span> <span>0<span>RSD</span></span></div>
+                <div class="summary-row"><span>Discount</span> <span>0<span>RSD</span></span></div>
+                <div class="summary-row1"><span>Subtotal</span> <span>0<span>RSD</span></span></div>
+                <a href="#" class="button gotopayment button-disabled">
+                    Go to payment
+                    <div class="icon-arrow icon-xxs"><i class="fa-regular fa-credit-card"></i></div></a>
+                    <span class="choice">or</span>
+                    <a href="/" class="back"><div class="icon-arrow">
+                      <i class="fa-solid fa-chevron-left"></i>
+                    </div>
+                        Continue shopping
+                        
+                        </a>
+            </div>
+        </div>
+    </div>
+    <div class="separator-wide">
+    </div>
+</div>
+</body>
+
+<!--------------------------------------------------END CART PAGE ------------------------------------------------------>
+
+{% endblock %}
