@@ -17,7 +17,7 @@ app = Flask(__name__)
 #logic of the application
 
 @app.route('/login', methods=['GET','POST'])
-def login():
+def render_login():
     if request.method == 'GET':
         return render_template('login.html')
     if request.method == 'POST':
@@ -52,12 +52,11 @@ def search_games_in_database(search_term):
     search_results = kursor.fetchall()
     return search_results
 
-@app.route('/cart', methods=['GET','POST'])
+@app.route('/cart')
+def render_cart() -> 'html':
+    return render_template('cart.html')
 
-def render_cart():
-    
 
 # to keep the application running
 app.run(debug = True)
 konekcija.close()
-
