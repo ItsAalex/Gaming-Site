@@ -32,22 +32,15 @@ def login():
 
 
 @app.route('/', methods=['GET','POST']) 
-
-def render_navigation(): #this function will handle requests to the home page route
-    search_term = request.args.get('q') # This line retrieves the search term from the request. The request.args object is a 
-                                        # dictionary-like object that allows you to access the request's query string parameters. 
-                                        # The get() method retrieves the value of the q parameter, which should be the search term.
+def render_navigation(): 
+    search_term = request.args.get('q') 
+    search_results = []
+    produkti =[]
     if search_term:
-        return jsonify(search_games_in_database(search_term))# returning result as JSON obj.Jsonify func is used to convert result of search func to json obj and send it to client
-    else:
-        return render_template('navigation.html')
-
-@app.route('/trending-games', methods = ['GET'])
-
-def trending_games():
-    kursor.execute("SELECT * FROM produkti ORDER BY popularity DESC")
-    trending_games = kursor.fetchall()
-    return jsonify(trending_games)
+        search_results = search_games_in_database(search_term)
+    kursor.execute("SELECT * FROM produkti ORDER BY popularnost DESC")
+    produkti = kursor.fetchall()
+    return render_template('navigation.html', search_results=search_results, produkti=produkti)
 
 @app.route('/primer', methods = ['GET'])
 
@@ -55,9 +48,14 @@ def render_primer() -> 'html':
     return render_template('primer.html')
 
 def search_games_in_database(search_term):
-    kursor.execute(f"SELECT * FROM produkti WHERE name LIKE '%{search_term}%'")
+    kursor.execute(f"SELECT * FROM produkti WHERE ime LIKE '%{search_term}%'")
     search_results = kursor.fetchall()
     return search_results
+
+@app.route('/cart', methods=['GET','POST'])
+
+def render_cart():
+    
 
 # to keep the application running
 app.run(debug = True)
