@@ -7,8 +7,8 @@
 <header class="header-container" id="header">
 <!--  NAVIGATION BAR  -->
   <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
-    <a class="navbar-brand" href="#home" title="Home">
-      <img src="/static/images/logo.png" width="50" height="50" alt="Logo">
+    <a class="navbar-brand" href="{{url_for('render_navigation')}}" title="Home"> <!-- VEZANO ZA HOME PAGE -->
+      <img  class="logo"src="/static/images/logos.png" width="50" height="50" alt="Logo">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -16,26 +16,42 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-link text-light" href="#pc">PC</a>
+          <a class="nav-link text-light" href="#pc">
+            <i class="fa-solid fa-desktop"></i>
+            PC
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="#playstation">Playstation</a>
+          <a class="nav-link text-light" href="#playstation">
+            <i class="fa-brands fa-playstation"></i>
+            Playstation
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="#xbox">Xbox</a>
+          <a class="nav-link text-light" href="#xbox">
+            <i class="fa-brands fa-xbox"></i>
+            Xbox
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="#nintendo">Nintendo</a>
+          <a class="nav-link text-light" href="#nintendo">
+            <i class="fa-solid fa-gamepad"></i>
+            Nintendo
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
         </li>
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-light" href="/templates/cart.html">
+          <a class="nav-link text-light" href="{{url_for('render_cart')}}">
             <i class="fas fa-shopping-cart"></i>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="#login">
+          <a class="nav-link text-light" href="{{url_for('render_login')}}">
             <i class="fa-solid fa-right-to-bracket"></i>
           </a>
         </li>
@@ -47,22 +63,21 @@
 <div class="main-content">
 <div class="home-container">
     <div class="highlight-container top-banner">  
-    <div class="header-top-gradient" style="background: linear-gradient(#041010 0%, transparent 100%); opacity: 0.6;">
-      <img src="/static/images/eldenring2.jpg" alt="Elden Ring"> 
-      <div class="content-game">
-        <div class="status">In 14 days</div>
-        <span class="banner-title">Elden Ring</span>
-        <div class="numbers">
-          <span class="discount">
-            -24%
-          </span>
-          <span class="price">
-            4998.69
-            <span>RSD</span>
-          </span> 
+      <div class="header-top-gradient" style="background: linear-gradient(#041010 0%, transparent 100%); opacity: 0.6;">
+        <img src="/static/images/123.jpg" alt="Poter Hari"> 
+        <div class="content-game">
+          <span class="banner-title">Elden Ring</span>
+          <div class="numbers">
+            <span class="discount">
+              -24%
+            </span>
+            <span class="price">
+              4998.69
+              <span>RSD</span>
+            </span> 
+          </div>
         </div>
     </div>
-  </div>
 </div>
 </div>
 <div class="products-trending">
@@ -71,199 +86,31 @@
     <a href="#" title="Trending" class="button button-secondary">View all</a>
   </div>
   <div class="listing-games">
-    <!-- START CODE GAME 1-->
+    {% for produkt in produkti %}
     <div class="item" id="games-item-1">
-        <div class="pic">
-          <img class="picture" data-src="#" alt="Marvel's Spider Man: Miles Morales" src="/static/images/spiderman.jpg" loading="lazy" onload="lazyLoadImage(this)">   
+      <div class="pic">
+        <img class="picture" src="/static/images/spiderman.jpg" loading="lazy" onload="lazyLoadImage(this)">
+      </div>
+        <div class="discount">
+          {% if produkt.popust %}
+          {%- raw %} -{% endraw -%} {{produkt.popust}} {%- raw %}% {% endraw %}
+          {% endif %}
         </div>
-          <div class="discount">
-            -49%
-          </div>
-          <div class="information">
-            <div class="text">
-              <div class="name">
-                <span class="title">Marvel's Spider-Man Morales</span>
-              </div>
-            </div>
-         <div class="price">
-            "2980.99"
-          <span>RSD</span>
+        <div class="information">
+          <div class="text">
+            <div class="name">
+              <span class="title">{{produkt.ime}}</span>
             </div>
           </div>
-        </div>
-        <!-- END CODE GAME 1 -->
-
-        <!-- START CODE GAME 2-->
-      <div class="item" id="games-item-2">
-        <div class="pic">
-          <img class="picture" data-src="#" alt="Frozen Flame" src="/static/images/frozenflame.jpg" loading="lazy" onload="lazyLoadImage(this)">
-        </div>
-          <div class="discount">
-            -61%
-          </div>
-          <div class="information">
-            <div class="text">
-              <div class="name">
-                <span class="title">Frozen Flame</span>
-              </div>
-            </div>
-         <div class="price">
-            "1567.68"
-          <span>RSD</span>
-            </div>
+       <div class="price">
+          {{produkt.cena}}
+        <span>RSD</span>
           </div>
         </div>
-        <!-- END CODE GAME 2-->
-
-        <!-- START CODE GAME 3-->
-        <div class="item" id="games-item-3">
-            <div class="pic">
-              <img class="picture" data-src="#" alt="Football Manager 2023" src="/static/images/footballmanager.jpg" loading="lazy" onload="lazyLoadImage(this)">
-            </div>
-            <div class="discount">
-              -23%
-            </div>
-              <div class="information">
-                <div class="text">
-                  <div class="name">
-                    <span class="title">Football Manager 2023</span>
-                  </div>
-                </div>
-             <div class="price">
-                "5435.45"
-              <span>RSD</span>
-                </div>
-              </div>
-            </div>
-          <!-- END CODE GAME 3-->
-          <!-- START CODE GAME 4-->
-          <div class="item" id="games-item-4">
-            <div class="pic">
-              <img class="picture" data-src="#" alt="WCR Generations Fully Loaded Edition" src="/static/images/WRC.jpg" loading="lazy" onload="lazyLoadImage(this)">
-             </div>
-             <div class="discount">
-              -14%
-             </div> 
-                <div class="information">
-                  <div class="text">
-                    <div class="name">
-                      <span class="title">WCR Generations</span>
-                    </div>
-                  </div>
-               <div class="price">
-                  "2435.45"
-                <span>RSD</span>
-                  </div>
-                </div>
-              </div>
-              <!-- END CODE GAME 4-->
-              <!-- START CODE GAME 5-->
-              <div class="item" id="games-item-5">
-                <div class="pic">
-                    <img class="picture" data-src="#" alt="Fire Emblem" src="/static/images/fireemblemengage.jpg" loading="lazy" onload="lazyLoadImage(this)">
-                  </div>
-                  <div class="discount">
-                    -19
-                  </div>
-                    <div class="information">
-                      <div class="text">
-                        <div class="name">
-                          <span class="title">Fire Emblem Engage Switch</span>
-                        </div>
-                      </div>
-                   <div class="price">
-                      "6435.45"
-                    <span>RSD</span>
-                      </div>
-                    </div>
-                  </div>
-                <!-- END CODE GAME 5-->
-                <!-- START CODE GAME 6 -->
-                  <div class="item" id="games-item-6">
-                    <div class="pic">
-                        <img class="picture" data-src="#" alt="Persona 3 Portable" src="/static/images/persona3.jpg" loading="lazy" onload="lazyLoadImage(this)">
-                  </div>
-                    <div class="discount">
-                      -30%
-                    </div>
-                        <div class="information">
-                          <div class="text">
-                            <div class="name">
-                              <span class="title">Persona 3 Portable</span>
-                            </div>
-                          </div>
-                       <div class="price">
-                          "1935.45"
-                        <span>RSD</span>
-                          </div>
-                        </div>
-                      </div>
-                <!-- END CODE GAME 6-->
-                <!-- START CODE GAME 7-->
-                <div class="item" id="games-item-7">
-                    <div class="pic">
-                      <img class="picture" data-src="#" alt="Mount & Blade II" src="/static/images/mountandblade.jpg" loading="lazy" onload="lazyLoadImage(this)">
-                    </div>
-                    <div class="discount">
-                      -28%
-                    </div>
-                      <div class="information">
-                        <div class="text">
-                          <div class="name">
-                            <span class="title">Mount & Blade II: Bannerlord</span>
-                          </div>
-                        </div>
-                     <div class="price">
-                        "1935.45"
-                      <span>RSD</span>
-                        </div>
-                      </div>
-                    </div>
-                <!-- END CODE GAME 7-->
-                <!-- START CODE GAME 8-->
-                <div class="item" id="games-item-8">
-                  <div class="pic">
-                      <img class="picture" data-src="#" alt="Rain World: Downpour" src="/static/images/rainworld.jpg" loading="lazy" onload="lazyLoadImage(this)">
-                    </div>
-                    <div class="discount">
-                      31%
-                    </div>
-                      <div class="information">
-                        <div class="text">
-                          <div class="name">
-                            <span class="title">Rain World: Downpour</span>
-                          </div>
-                        </div>
-                     <div class="price">
-                        "1935.45"
-                      <span>RSD</span>
-                        </div>
-                      </div>
-                    </div>
-                <!-- END CODE GAME 8-->
-                <!-- START CODE GAME 9-->
-                <div class="item" id="games-item-9">
-                  <div class="pic">
-                      <img class="picture" data-src="#" alt="Farming Simulator 22 Platinum Edition" src="/static/images/farmingsimulator22.jpg" loading="lazy" onload="lazyLoadImage(this)">
-                    </div>
-                    <div class="discount">
-                      -21%
-                    </div>
-                      <div class="information">
-                        <div class="text">
-                          <div class="name">
-                            <span class="title">Farming Simulator 22</span>
-                          </div>
-                        </div>
-                     <div class="price">
-                        "2935.45"
-                      <span>RSD</span>
-                        </div>
-                      </div>
-                  </div>
-                <!-- END CODE GAME 9-->
+      </div>
+{% endfor %}        
     </div>
-  </div>
+  </div> 
     <div class="separator"></div>
 
     <footer class="footer-container">
@@ -287,27 +134,27 @@
         <div class="medias">
           <div class="icons">
             <a href="#" title="Twitter" target="_blank" rel="noopener" class="socials-twitter">
-              <div class="icon-twitter"></div>
+              <div class="icon-twitter"><i class="fa-brands fa-twitter"></i></div>
             </a>
             <a href="#" title="Facebook" target="_blank" rel="noopener" class="socials-facebook">
-              <div class="icon-facebook"></div>
+              <div class="icon-facebook"><i class="fa-brands fa-facebook"></i></div>
             </a>
             <a href="#" title="Instagram" target="_blank" rel="noopener" class="socials-instagram">
-              <div class="icon-intagram"></div>
+              <div class="icon-intagram"><i class="fa-brands fa-instagram"></i></div>
             </a>
             <a href="#" title="Youtube" target="_blank" rel="noopener" class="socials-youtube">
-              <div class="icon-youtube"></div>
+              <div class="icon-youtube"><i class="fa-brands fa-youtube"></i></div>
             </a>
             <a href="#" title="Twitch" target="_blank" rel="noopener" class="socials-twitch">
-              <div class="icon-twitch"></div>
+              <div class="icon-twitch"><i class="fa-brands fa-twitch"></i></div>
             </a>
           </div>
           <div class="apps">
             <a href="#" title="Iphone App" target="_blank">
-              <img src="/static/images/apple.png" loading="lazy">
+              <!--<img src="/static/images/apple.png" loading="lazy"> -->
             </a>
             <a href="#" title="Android App" target="_blank">
-              <img src="/static/images/android.png" loading="lazy">
+             <!-- <img src="/static/images/android.png" loading="lazy"> -->
             </a>
           </div>
         </div>
