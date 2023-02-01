@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, url_for, request, redirect, session, flash
-from werkzeug.security import generate_password_hash, check_password_hash 
+from werkzeug.security import generate_password_hash, check_password_hash
 import mariadb
 import mysql.connector
 
@@ -12,6 +12,7 @@ connection = mysql.connector.connect(
 )
 cursor = connection.cursor(dictionary=True) # cursor = variable that allows us to connect to the database, we use it to execute queries
                                            # (connection between app and the database)
+
 app = Flask(__name__)
 app.secret_key = 'acaPukiAleksa'
 
@@ -39,7 +40,8 @@ def render_cart():
     cart = []
     total_price = 0
     for game_id in session['cart']:
-        cursor.execute(f"SELECT * FROM produkti WHERE id = {game_id}")
+        question = f"SELECT * FROM produkti WHERE id = {game_id}"
+        cursor.execute(question)
         game = cursor.fetchone()
         cart.append(game)
         total_price += game['cena']
@@ -61,10 +63,11 @@ def render_login():
         email = request.form['email']
         password = request.form['password']
         vrednost = (email,)
-        cursor.execute("SELECT password_hash FROM korisnik WHERE email= %s", vrednost)
+        question = "SELECT password_hash FROM korisnik WHERE email= %s" # mozda treba f da se stavi ispred
+        cursor.execute(question, vrednost)
         user = cursor.fetchone()
         if user:
-            if (user["password_hash"] == password):
+            if check_password_hash(user["password_hash"], password):
                 flash('You were logged in')
                 return redirect(url_for('render_navigation'))
             else:
