@@ -3,14 +3,14 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import mariadb
 import mysql.connector
 
-konekcija = mysql.connector.connect(
+connection = mysql.connector.connect(
     passwd="", # password for the database
     user="root", # username
     database="gaming-site", # database name     
     port=3306, # port on which the mysql server is running 
     auth_plugin='mysql_native_password' # if you are using mysql 8.x  
 )
-kursor = konekcija.cursor(dictionary=True) # cursor = variable that allows us to connect to the database, we use it to execute queries
+cursor = connection.cursor(dictionary=True) # cursor = variable that allows us to connect to the database, we use it to execute queries
                                            # (connection between app and the database)
 app = Flask(__name__)
 app.secret_key = 'acaPukiAleksa'
@@ -39,8 +39,8 @@ def render_cart():
     cart = []
     total_price = 0
     for game_id in session['cart']:
-        kursor.execute(f"SELECT * FROM produkti WHERE id = {game_id}")
-        game = kursor.fetchone()
+        cursor.execute(f"SELECT * FROM produkti WHERE id = {game_id}")
+        game = cursor.fetchone()
         cart.append(game)
         total_price += game['cena']
     return render_template('cart.html', cart=cart, total_price=total_price)
@@ -60,18 +60,11 @@ def render_login():
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
-        connection = mysql.connector.connect(
-            host="127.0.0.1",
-            user="root",
-            password="",
-            database="gaming-site"
-        )
-        cursor = connection.cursor()
-        cursor.execute(f"SELECT password_hash FROM korisnik WHERE email='{email}'")
+        vrednost = (email,)
+        cursor.execute("SELECT password_hash FROM korisnik WHERE email= %s", vrednost)
         user = cursor.fetchone()
-        connection.close()
         if user:
-            if check_password_hash(user[0], password):
+            if (user["password_hash"] == password):
                 flash('You were logged in')
                 return redirect(url_for('render_navigation'))
             else:
@@ -84,40 +77,33 @@ def render_login():
 
 @app.route('/signup', methods=['GET', 'POST'])
 def render_signup():
-    if request.method == 'GET':
-        return render_template('signup.html')
-    if request.method == 'POST':
-        email = request.form['email']
-        password = request.form['password']
-        password_confirm = request.form['password_confirm']
-        if password != password_confirm:
-            flash('Passwords do not match')
-            return redirect(url_for('signup'))
-        password_hash = generate_password_hash(password)
-        connection = mysql.connector.connect(
-            host="127.0.0.1",
-            user="root",
-            password="",
-            database="gaming-site"
-        )
-        cursor = connection.cursor()
-        cursor.execute(f"INSERT INTO korisnik (email, password_hash) VALUES ('{email}', '{password_hash}')")
-        connection.commit()
-        connection.close()
-        flash('You were signed up')
-        return redirect(url_for('login'))
+    return render_template('signup.html')
 
+@app.route('/new_user',methods=['GET','POST'])
+def new_user():
+    if request.method=='GET':
+        render_template('navigation.html')
+    elif request.method == 'POST':
+        forma = request.form
+        hash_password = generate_password_hash(forma["lozinka"])
+        vrednosti = (
+            forma["ime"],
+            forma["prezime"],
+            forma["email"],
+            hash_password,
+            "user"
+        )
+        upit = "insert INTO korisnik (ime,prezime,email,password_hash,rola) values (%s,%s,%s,%s,%s)"
+        cursor.execute(upit,vrednosti)
+        connection.commit()
+        return(redirect(url_for('render_login')))
 
 @app.route('/', methods=['GET','POST']) 
 def render_navigation(): 
-    search_term = request.args.get('q') 
-    search_results = []
-    produkti =[]
-    if search_term:
-        search_results = search_games_in_database(search_term)
-    kursor.execute("SELECT * FROM produkti ORDER BY popularnost DESC")
-    produkti = kursor.fetchall()
-    return render_template('navigation.html', search_results=search_results, produkti=produkti)
+    products =[]
+    cursor.execute("SELECT * FROM produkti ORDER BY popularnost DESC")
+    products = cursor.fetchall()
+    return render_template('navigation.html', products = products)
 
 
 @app.route('/primer', methods=['GET','POST'])
@@ -126,5 +112,5 @@ def render_primer():
 
 # to keep the application running
 app.run(debug = True)
-konekcija.close()
+connection.close()
 
