@@ -56,17 +56,18 @@ def clear_cart():
 #logic of the application
 
 @app.route('/login', methods=['GET', 'POST'])
-def render_login():
+def login():
     if request.method == 'GET':
-        return render_template('login.html')
+        return render_template('signup.html')
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
         vrednost = (email,)
-        question = "SELECT password_hash FROM korisnik WHERE email= %s" # mozda treba f da se stavi ispred
-        cursor.execute(question, vrednost)
-        user = cursor.fetchone()
-        if user:
+        query = "SELECT password_hash FROM korisnik WHERE email= %s"
+        cursor.execute(query, vrednost)
+        user = cursor.fetchone() #zapamtio ga je kao recnik?
+        print('...............................................................',user)
+        if user != None:
             if check_password_hash(user["password_hash"], password):
                 flash('You were logged in')
                 return redirect(url_for('render_navigation'))
@@ -75,32 +76,27 @@ def render_login():
                 return redirect(url_for('render_primer'))
         else:
             flash('User not found')
-            return redirect(url_for('render_login'))
+            return redirect(url_for('login'))
 
-
-@app.route('/signup', methods=['GET', 'POST'])
-def render_signup():
-    return render_template('signup.html')
-
-@app.route('/new_user',methods=['GET','POST'])
+@app.route('/new_user', methods=['GET', 'POST'])
 def new_user():
-    if request.method=='GET':
-        render_template('navigation.html')
-    elif request.method == 'POST':
+     if request.method == 'GET':
+        return render_template('signup.html')
+     elif request.method == 'POST':
         forma = request.form
-        hash_password = generate_password_hash(forma["lozinka"])
+        hash_password = generate_password_hash(forma["password"])
         vrednosti = (
-            forma["ime"],
-            forma["prezime"],
+            forma["name"],
+            forma["last name"],
             forma["email"],
             hash_password,
             "user"
         )
-        upit = "insert INTO korisnik (ime,prezime,email,password_hash,rola) values (%s,%s,%s,%s,%s)"
-        cursor.execute(upit,vrednosti)
+        query = "insert INTO korisnik (ime,prezime,email,password_hash,rola) values (%s,%s,%s,%s,%s)"
+        cursor.execute(query,vrednosti)
         connection.commit()
-        return(redirect(url_for('render_login')))
-
+        return(redirect(url_for('login')))
+        #return render_template('navigation.html') test za shvatanje app route
 @app.route('/', methods=['GET','POST']) 
 def render_navigation(): 
     products =[]
