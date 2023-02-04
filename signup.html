@@ -34,43 +34,39 @@
         <div class="slider-tab"></div>
       </div>
       <div class="form-inner">
-        <form action="#" class="login">
+        <form action={{url_for('signup')}} method="POST" class="login">
           <pre>
           </pre>
 <div class="field">
-            <input type="text" placeholder="Email Address" required>
+            <input type="text" placeholder="Email" name="email" required>
           </div>
           <div class="field">
-            <input type="password" placeholder="Password" required>
+            <input type="password" placeholder="Password" name = "password" required>
           </div>
-          <div class="pass-link"><a href="#">Forgot password?</a></div>
           <div class="field btn">
             <div class="btn-layer"></div>
-            <input type="submit" value="Login">
+            <input type="submit" value="Login"> <!--kada ovo dugme kliknemo, mi radimo "post" i onda idemo u app.py u func login-->
           </div>
-          <div class="signup-link">Create an account <a href="">Signup now</a></div>
         </form>
-        <form action="#" class="signup">
+        <form action={{url_for('new_user')}} method="POST" class="signup">
           <div class="field">
-            <input type="text" placeholder="Name" required>
+            <input type="text" placeholder="Name" methods="POST" name="name" required>
           </div>
           <div class="field">
-            <input type="text" placeholder="Email Address" required>
+            <input type="text" placeholder="Last name" methods="POST" name="last name" required>
           </div>
           <div class="field">
-            <input type="password" placeholder="Password" required>
+            <input type="password" placeholder="Email" methods="POST" name="email" required>
           </div>
           <div class="field">
-            <input type="password" placeholder="Confirm password" required>
+            <input type="password" placeholder="Password" methods="POST" name="password" required>
           </div>
           <div class="field btn">
             <div class="btn-layer"></div>
             <input type="submit" value="Signup">
           </div>
-          <div class="signup-link">Already have an account? <a href="">Login</a></div>
         </form>
       </div>
     </div>
   </div>
-
   {% endblock %}
