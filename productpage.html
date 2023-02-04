@@ -1,0 +1,154 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body class="gamingsite-home">
+    <header class="header-container" id="header">
+    <!--  NAVIGATION BAR  -->
+      <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+        <a class="navbar-brand" href="{{url_for('render_navigation')}}" title="Home"> <!-- VEZANO ZA HOME PAGE -->
+          <img  class="logo"src="/static/images/logos.png" width="50" height="50" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#pc">
+                <i class="fa-solid fa-desktop"></i>
+                PC
+                <i class="fa-solid fa-chevron-down"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#playstation">
+                <i class="fa-brands fa-playstation"></i>
+                Playstation
+                <i class="fa-solid fa-chevron-down"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#xbox">
+                <i class="fa-brands fa-xbox"></i>
+                Xbox
+                <i class="fa-solid fa-chevron-down"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#nintendo">
+                <i class="fa-solid fa-gamepad"></i>
+                Nintendo
+                <i class="fa-solid fa-chevron-down"></i>
+              </a>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link text-light" href="{{url_for('render_cart')}}">
+                <i class="fas fa-shopping-cart"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="{{url_for('signup')}}">
+                <i class="fa-solid fa-user"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+</header>
+    <div class="main-content">
+        <div class="home-container">
+            <div class="highlight-container top-banner">  
+              <div class="header1-top-gradient" style="background: linear-gradient(#041010 0%, transparent 100%); opacity: 0.6;">
+                <img src="/static/images/123.jpg" alt="Poter Hari">
+<div class="content classic">
+    <div class="panel-container">
+        <div class="data">
+            <div class="presentation">
+                <img class="slika"data-src="#" src="/static/images/123.jpg" loading="lazy" onload="lazyLoadImage(this)">
+            </div>
+            <div class="panel item wide">
+                <div class="name">
+                    <h1 class="game-title">Elden Ring</h1>
+                    <a data-text-add="Add to wishlist" data-text-remove="Added to your wishlist" data-hint="Add to my wishlist" href="#" class="favorite addwishlist"></a>
+                </div>
+                <div class="subinfos">
+                    <a href="#" class="platform steam">
+                        <div class="single platform-steam">Steam</div>
+                      </a>   
+                        <span class="spacer">|</span>
+                <div class="stock">
+                    In stock
+                </div>
+                <span class="spacer">|</span>
+                <div class="download">
+                    Digital download
+                </div>
+                </div>
+                <div class="choices">
+                    <div class="choices-selector" tabindex="0">
+                        <span class="current"> Standard Edition </span>
+                        <ul class="list">
+                            <li class="option selected focus">
+                                Standard Edition
+                            </li>
+                            <li class="option">
+                                Digital Deluxe Edition
+                            </li>
+                        </ul>
+                    </div>  
+                </div>
+                <div class="amonut">
+                    <div class="discounts"></div>
+                    <div class="retail">
+                        9421
+                    <span>RSD</span>
+                    </div>
+                </div>
+                <div class="discounted"></div>
+                <div class="total">
+                    4450.63
+                    <span>RSD</span>
+                </div>
+                <div class="action priced">
+                  <a href="#" class="buttonforcart">
+                      <!-- icon -->
+                  </a>
+                  <a href="#" class="buynow">Buy now</a>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="separator"></div>
+</div>
+<div class="details">
+    <div class="about">
+        <div class="headline">
+            <h2>About the Game</h2>
+        </div>
+        <div class="text readable">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure voluptates voluptate cupiditate aperiam porro amet doloremque? Ex vitae sed dolorem, voluptas eos tempora temporibus provident laudantium, quo et beatae deleniti.</div>
+        <div class="readable"> Read more</div>
+    </div>
+    <div class="table">
+        <ul class="social">
+            <li>Installation:</li>
+            <span class="product-activate">How to activate your game</span>
+            <li>Rating:</li>
+            <span class="pegi">Pegi 18</span>
+            <li>Developer:</li>
+            <span class="luminous">Luminous Productions</span>
+            <li>Publisher:</li>
+            <span class="square">Square Enix</span>
+            <li>Release date:</li>
+            <span class="datum">24 January 2023</span>
+            <li>Genre</li>
+            <span class="genre">Single-player,Action,Adventure,RPG</span>
+        </ul>
+    </div>
+</div>
+
+
+{% endblock %}
