@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 29, 2023 at 05:45 PM
+-- Generation Time: Feb 04, 2023 at 05:43 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -33,7 +33,7 @@ CREATE TABLE `korisnik` (
   `prezime` varchar(20) NOT NULL,
   `rola` varchar(20) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `password_hash` varchar(15) NOT NULL
+  `password_hash` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -41,7 +41,8 @@ CREATE TABLE `korisnik` (
 --
 
 INSERT INTO `korisnik` (`id`, `ime`, `prezime`, `rola`, `email`, `password_hash`) VALUES
-(1, 'Aleksandar', 'Cvetkovic', 'Admin', 'coa@gmail.com', '123');
+(8, 'Aleksandar', 'Cvetkovic', 'user', 'slovnipo31@gmail.com', 'pbkdf2:sha256:260000$2wmwiwnOAXBuMrB0$477b1eb4c1a2a259f570eb8a2cb3fa1e693ee0d9a7bd7a9f1bc5e70326dcdfdd'),
+(9, 'Nikola', 'Zivkovic', 'user', 'zile01@gmail.com', 'pbkdf2:sha256:260000$yzxJfbyNLf5pQJom$3c4d75c3589518aaf356c06d3618b74fa716cb752a9c22dbeea36ae8da8118ae');
 
 -- --------------------------------------------------------
 
@@ -57,7 +58,7 @@ CREATE TABLE `produkti` (
   `dostupnost` int(11) NOT NULL,
   `popularnost` int(11) NOT NULL,
   `popust` int(11) NOT NULL,
-  `image_url` varchar(300) NOT NULL
+  `image_url` varchar(600) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -65,7 +66,7 @@ CREATE TABLE `produkti` (
 --
 
 INSERT INTO `produkti` (`id`, `ime`, `deskripcija`, `cena`, `dostupnost`, `popularnost`, `popust`, `image_url`) VALUES
-(1, 'Game name', 'Game description', '9.99', 10, 100, 0, 'https://drive.google.com/file/d/1IV9JemA_UDSIZICU0p3lEdc43XEiW-pD/view?usp=share_link'),
+(1, 'Game name', 'Game description', '9.99', 10, 100, 0, 'https://drive.google.com/file/d/1IV9JemA_UDSIZICU0p3lEdc43XEiW-pD/view?usp=sharing'),
 (2, 'Another game', 'Another game description', '14.99', 5, 200, 0, 'https://drive.google.com/file/d/1zftRpPOktERuaie0vQHd-YiCM5Tese5z/view?usp=sharing');
 
 --
@@ -92,7 +93,7 @@ ALTER TABLE `produkti`
 -- AUTO_INCREMENT for table `korisnik`
 --
 ALTER TABLE `korisnik`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `produkti`
