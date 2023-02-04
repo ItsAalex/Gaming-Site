@@ -55,8 +55,8 @@ def clear_cart():
 
 #logic of the application
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
     if request.method == 'GET':
         return render_template('signup.html')
     if request.method == 'POST':
@@ -76,7 +76,7 @@ def login():
                 return redirect(url_for('render_primer'))
         else:
             flash('User not found')
-            return redirect(url_for('login'))
+            return redirect(url_for('signup'))
 
 @app.route('/new_user', methods=['GET', 'POST'])
 def new_user():
@@ -95,7 +95,7 @@ def new_user():
         query = "insert INTO korisnik (ime,prezime,email,password_hash,rola) values (%s,%s,%s,%s,%s)"
         cursor.execute(query,vrednosti)
         connection.commit()
-        return(redirect(url_for('login')))
+        return(redirect(url_for('signup')))
         #return render_template('navigation.html') test za shvatanje app route
 @app.route('/', methods=['GET','POST']) 
 def render_navigation(): 
