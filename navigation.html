@@ -52,7 +52,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link text-light" href="{{url_for('signup')}}">
-            <i class="fa-solid fa-right-to-bracket"></i>
+            <i class="fa-solid fa-user"></i>
           </a>
         </li>
       </ul>
@@ -66,7 +66,8 @@
       <div class="header-top-gradient" style="background: linear-gradient(#041010 0%, transparent 100%); opacity: 0.6;">
         <img src="/static/images/123.jpg" alt="Poter Hari"> 
         <div class="content-game">
-          <span class="banner-title">Harry Potter</span>
+          <a class="full-link" href="#"></a>
+          <span class="banner-title">Elden Ring</span>
           <div class="numbers">
             <span class="discount">
               -24%
@@ -89,7 +90,7 @@
     {% for produkt in produkti %}
     <div class="item" id="games-item-1">
       <div class="pic">
-        <img class="picture" src= loading="lazy" onload="lazyLoadImage(this)">
+        <img class="picture" src="/static/images/spiderman.jpg" loading="lazy" onload="lazyLoadImage(this)">
       </div>
         <div class="discount">
           {% if produkt.popust %}
