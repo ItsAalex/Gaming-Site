@@ -1,6 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title> Login Form | CodingLab </title>
+    <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+   </head>
+   <header class="header-container" id="header">
+     <!-- NAVIGATION BAR --> 
+      <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+        <a class="navbar-brand" href="{{url_for('render_navigation')}}" title="Home">
+          <img  class="logo"src="/static/images/logos.png" width="50" height="50" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        </div>
+      </nav>
+     <!-- END OF NAVIGATION BAR -->
+    </header>
 <div class="wrapper">
     <div class="title-text">
       <div class="title login">Login Form</div>
@@ -11,38 +30,38 @@
         <input type="radio" name="slide" id="login" checked>
         <input type="radio" name="slide" id="signup">
         <label for="login" class="slide login">Login</label>
-        <label for="signup" class="slide signup" name="signup">Signup</label>
+        <label for="signup" class="slide signup">Signup</label>
         <div class="slider-tab"></div>
       </div>
       <div class="form-inner">
-        <form action={{url_for('login')}} method="POST" class="login">
+        <form action="#" class="login">
           <pre>
           </pre>
 <div class="field">
-            <input type="text" placeholder="email" name="email"required>
+            <input type="text" placeholder="Email Address" required>
           </div>
           <div class="field">
-            <input type="password" placeholder="password" name="password" required>
+            <input type="password" placeholder="Password" required>
           </div>
           <div class="pass-link"><a href="#">Forgot password?</a></div>
           <div class="field btn">
             <div class="btn-layer"></div>
-            <input type="submit" value="Login"> <!--kada ovo dugme kliknemo, mi radimo "post" i onda idemo u app.py u func login-->
+            <input type="submit" value="Login">
           </div>
           <div class="signup-link">Create an account <a href="">Signup now</a></div>
         </form>
-        <form action={{url_for('new_user')}} method="POST" class="signup">
+        <form action="#" class="signup">
           <div class="field">
-            <input type="text" placeholder="Name" name="name" required>
+            <input type="text" placeholder="Name" required>
           </div>
           <div class="field">
-            <input type="text" placeholder="prezime" name="last name" required>
+            <input type="text" placeholder="Email Address" required>
           </div>
           <div class="field">
-            <input type="text" placeholder="Email Address" name="email" required>
+            <input type="password" placeholder="Password" required>
           </div>
           <div class="field">
-            <input type="password" placeholder="Password" name="password" required>
+            <input type="password" placeholder="Confirm password" required>
           </div>
           <div class="field btn">
             <div class="btn-layer"></div>
@@ -53,4 +72,5 @@
       </div>
     </div>
   </div>
-{% endblock %}
+
+  {% endblock %}
