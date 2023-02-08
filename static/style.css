@@ -222,7 +222,8 @@ a.cover.img{
 
 .listing-games .item .pic  {    
     width: 300px; 
-    height: 300px;  
+    height: 300px;
+    /*min-width i min-height treba tu i jos neke stvari, by Milan*/
 }    
 .static:hover {    
     opacity: 0;   
