@@ -64,10 +64,10 @@
 <div class="home-container">
     <div class="highlight-container top-banner">  
       <div class="header-top-gradient" style="background: linear-gradient(#041010 0%, transparent 100%); opacity: 0.6;">
-        <img src="/static/images/123.jpg" alt="Poter Hari"> 
+        <img src="{{rows[0]["image_url"]}}" alt="Poter Hari"> 
         <div class="content-game">
           <a class="full-link" href="#"></a>
-          <span class="banner-title">Elden Ring</span>
+          <span class="banner-title">{{rows[0]["ime"]}}</span>
           <div class="numbers">
             <span class="discount">
               -24%
@@ -87,10 +87,10 @@
     <a href="#" title="Trending" class="button button-secondary">View all</a>
   </div>
   <div class="listing-games">
-    {% for produkt in produkti %}
+    {% for produkt in rows %}
     <div class="item" id="games-item-1">
       <div class="pic">
-        <img class="picture" src="/static/images/spiderman.jpg" loading="lazy" onload="lazyLoadImage(this)">
+        <img class="picture" src="{{produkt["image_url"]}}" loading="lazy" onload="lazyLoadImage(this)"> <!--U listi se nalazi vise dictionary-a(produkt)-->
       </div>
         <div class="discount">
           {% if produkt.popust %}
