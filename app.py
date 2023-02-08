@@ -98,16 +98,18 @@ def new_user():
         return(redirect(url_for('signup')))
         #return render_template('navigation.html') test za shvatanje app route
 @app.route('/', methods=['GET','POST']) 
-def render_navigation(): 
-    products =[]
-    cursor.execute("SELECT * FROM produkti ORDER BY popularnost DESC")
-    products = cursor.fetchall()
-    return render_template('navigation.html', products = products)
+def render_navigation():
+    query = "SELECT * FROM produkti" #ako hocu da ga sortira kazem mu: query = "SELECT * FROM produkti where order by popularnost asc/desc"
+    cursor.execute(query) # ako imam vise query-a onda bi izgledalo ovako: query, multi = True
+    rows = cursor.fetchall() #fetchuj mi sve redove iz tabele
+    return render_template('navigation.html', rows = rows)
 
 
 @app.route('/primer', methods=['GET','POST'])
 def render_primer():
-    return render_template('primer.html')
+    cursor.execute("SELECT image_url FROM produkti")
+    slika = cursor.fetchall() #fetchuj mi sve slike
+    return render_template('primer.html', slika = slika)
 
 # to keep the application running
 app.run(debug = True)
