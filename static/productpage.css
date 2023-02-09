@@ -23,33 +23,44 @@
 }
 .presentation{
     height: 353px;
-    width: 616px;
+    width: 700px;
 }
 .slika{
     height: 356px;
     border-radius: 20px;
 }
 .about {
-    height: 350px;
+    height: 160px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
 }
+.headline{
+    width: 100%;
+}
 .text{
     display: inline-flex;
     width: 1200px;
 }
+.text.readable{
+    color: #ffffff;
+    text-decoration-line: none;
+}
 .readable{
     display: inline-flex;
-    width: 1200px
-
+    width: 600px;
+    text-decoration-line: underline;
+    color: #909090;
 }
-.readable:hover{
-    color: red;
+.link-readable{
+    color: #909090;
+}
+.link-readable:hover{
+    color: #909090;
 }
 .subinfos{
-font-size: 13px;
+font-size: 15px;
 background-color: rgba(16,16,16,.3);
 padding: 7px 20px;
 display: flex;
@@ -63,4 +74,229 @@ min-height: 50px;
     margin-left: 5px;
     margin-right: 5px;
     color: white;
+}
+.panel{
+    border-radius: 15px;
+    backdrop-filter: blur(60px) saturate(100%);
+    -webkit-backdrop-filter: blur(60px) saturate(100%);
+    padding: 20px 20px 0;
+    margin-left: 60px;
+    z-index: 1;
+    min-height: 310px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-image: linear-gradient(1turn,var(--color-dark),rgba(39,39,39,0) 70%);
+    background-color: transparent;
+    width: 450px;
+    justify-content: space-evenly;
+}
+.game-title{
+    font-size: 30px;
+    font-family: roboto;
+    align-self: center;
+}
+.single.platform-steam{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+.steam-icon{
+    background-color: #14487b;
+    border-radius: 120%;
+    padding: 5px;
+    font-size: 20px;
+    margin-right: 14px;
+}
+.amonut{
+    margin: auto;
+    display: flex;
+    align-items: baseline;
+    margin: 10px;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.discounts{
+    font-size: 19px;
+    margin-left: 10px;
+    color: red;
+    transform: rotate(90deg);
+    margin-right: 10px;
+}
+.discounted{
+    font-size: 20px;
+    color: red;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.choices{
+    padding-top: 7px;
+}
+.choices-selector{
+    max-width: 227px;
+    margin: 5px auto;
+}
+.current{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+}
+.choices-selector:after {
+    border-bottom: 1px solid #fff;
+    border-right: 1px solid #fff;
+    content: "";
+    display: block;
+    height: 5px;
+    margin-top: -4px;
+    pointer-events: none;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform-origin: 66% 66%;
+    transform: rotate(45deg);
+    width: 5px;
+}
+h2{
+    font-size: 28px;
+    font-family: roboto;
+}
+.specifict{
+width: 100%;
+    margin: 15px 15px 15px 90px;
+}
+.table {
+    margin-top: 65px;
+    line-height: 25px;
+    color: var(--color-light);
+    display: flex;
+    flex-direction: column;
+}
+.table .table-row{
+    display: table-row;
+}
+.social{
+    align-self: center;
+}
+.details{
+    display: flex;
+    margin: auto;
+    width: 1200px;
+    padding: 10px
+}
+li::marker{
+}
+li{
+    display: flex;
+}
+.product-activate{
+    margin-left: 15px;
+}
+.product-activate-activate{
+    color: white;
+}
+.product-activate-activate:hover{
+    color: red;
+}
+.pegi{
+    margin-left: 15px;
+    color: #ffffff;
+}
+.pegi:hover{
+    color: red;
+}
+
+.luminous{
+    margin-left: 15px;
+    color: #ffffff;
+}
+.luminous:hover{
+    color: red;
+}
+
+.square{
+    margin-left: 15px;
+    color: #ffffff;
+}
+.square:hover{
+    color: red;
+}
+.datum{
+    margin-left: 15px;
+}
+.genre{
+    color: #ffffff;
+}
+.genre:hover{
+    color: red;
+}
+
+.genre-selection{
+    margin-left: 15px;
+    font-family: roboto; 
+}
+
+.table-cell{
+    color: #909090
+}
+.action.priced{
+    margin: 3px 5px 0;
+    width: 100%;
+    display: flex;
+}
+.buttonforcart{
+    padding: 0 15px;
+    margin: 5px;
+    border-radius: 15px;
+    background-color: red;
+    display: flex;
+    width: 20%;
+    align-items: center;
+}
+.buynow{
+    padding: 0 15px;
+    margin: 5px;
+    border-radius: 15px;
+    background-color: red;
+    display: flex;
+    width: 80%;
+    color: #ffffff;
+}
+.buynow:hover{
+    color: black;
+  
+}
+.total{
+    font-size: 30px;
+    font-family: roboto;
+}
+.retail{
+    font-size: 20px;
+    font-family: roboto;
+}
+.rsd{
+    font-size: 15px;
+    font-family: roboto;
+}
+.buy-now {
+    display: flex;
+    margin-left: 96px;
+    margin-top: 15px;
+    font-size: 20px;
+    font-family: roboto;
+}
+.icon-cart {
+    margin-bottom: 10px;
+    height: 50px;
+    width: 62px;
+    flex: 0 0 50px;
+    padding-top: 20px;
+    color: white;
+}
+.icon-cart:hover{
+    color: black;
 }
