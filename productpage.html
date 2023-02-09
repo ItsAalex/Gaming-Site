@@ -77,7 +77,9 @@
                 </div>
                 <div class="subinfos">
                     <a href="#" class="platform steam">
-                        <div class="single platform-steam">Steam</div>
+                        <div class="single platform-steam">
+                          <div class="steam-icon"><i class="fa-brands fa-steam-symbol"></i></div>
+                           Steam</div>
                       </a>   
                         <span class="spacer">|</span>
                 <div class="stock">
@@ -88,7 +90,7 @@
                     Digital download
                 </div>
                 </div>
-                <div class="choices">
+                <!--<div class="choices">
                     <div class="choices-selector" tabindex="0">
                         <span class="current"> Standard Edition </span>
                         <ul class="list">
@@ -100,24 +102,26 @@
                             </li>
                         </ul>
                     </div>  
-                </div>
+                </div> -->
                 <div class="amonut">
-                    <div class="discounts"></div>
+                    <div class="discounts"><i class="fa-solid fa-tag"></i></div>
                     <div class="retail">
-                        9421
-                    <span>RSD</span>
+                        <s>6709.23</s>
+                    <span class="rsd">RSD</span>
                     </div>
-                </div>
-                <div class="discounted"></div>
+                <div class="discounted"> -24%</div>
                 <div class="total">
                     4450.63
-                    <span>RSD</span>
+                    <span class="rsd">RSD</span>
+                </div>
                 </div>
                 <div class="action priced">
                   <a href="#" class="buttonforcart">
                       <!-- icon -->
+                      <span class="icon-cart"><i class="fas fa-shopping-cart"></i></span>
+                      
                   </a>
-                  <a href="#" class="buynow">Buy now</a>
+                  <a href="#" class="buynow"><span class="buy-now">Buy now</span></a>
               </div>
             </div>
         </div>
@@ -130,25 +134,105 @@
             <h2>About the Game</h2>
         </div>
         <div class="text readable">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure voluptates voluptate cupiditate aperiam porro amet doloremque? Ex vitae sed dolorem, voluptas eos tempora temporibus provident laudantium, quo et beatae deleniti.</div>
-        <div class="readable"> Read more</div>
+        <div class="readable"><a class="link-readable" href="#">Read more</a></div>
     </div>
     <div class="table">
         <ul class="social">
-            <li>Installation:</li>
+            <li>
+              <div class="table-cell">Installation:</div>
+            <a class="product-activate-activate" href="#">
             <span class="product-activate">How to activate your game</span>
-            <li>Rating:</li>
-            <span class="pegi">Pegi 18</span>
-            <li>Developer:</li>
-            <span class="luminous">Luminous Productions</span>
-            <li>Publisher:</li>
-            <span class="square">Square Enix</span>
-            <li>Release date:</li>
-            <span class="datum">24 January 2023</span>
-            <li>Genre</li>
-            <span class="genre">Single-player,Action,Adventure,RPG</span>
+            </a>
+            </li>
+            <li>
+              <div class="table-cell">Rating:</div>
+            <a class="pegi"href="#">Pegi 18</a>
+            </li>
+            <li>
+              <div class="table-cell">Developer:</div>
+            <a class="luminous" href="#">Luminous Productions</a>
+            </li>
+            <li>
+              <div class="table-cell">Publisher:</div>
+            <a class="square" href="#">Square Enix</a>
+            </li>
+            <li>
+              <div class="table-cell">Release date:</div>
+            <span class="datum"href="#">24 January 2023</span>
+            </li>
+            <li>
+              <div class="table-cell">Genre:</div>
+            <span class="genre-selection">
+            <a class="genre" href="#">Single player</a>
+            <span class="comma">, </span>
+            <a class="genre" href="#">Action</a>
+            <span class="comma">, </span>
+            <a class="genre" href="#">RPG</a>
+            <span class="comma">, </span>
+            <a class="genre" href="#">Adventures</a>
+            </span>
+            </li>
         </ul>
     </div>
 </div>
+<footer class="footer-container">
+  <div class="content">
+    <div class="links">
+      <a href="#" class="logo">
+      </a>
+    </div>
+    <ul class="list">
+      <li>
+        <a class="sublinks" rel="nofollow" href="#">Terms of Use</a>
+      </li>
+      <li>
+        <a class="sublinks" rel="nofollow" href="#">Privacy policy</a>
+      </li>
+      <li>
+        <a class="sublinks" rel="nofollow" href="#">Contact us</a>
+      </li>
+      <a class="sublinks" rel="nofollow" href="#">FAQ</a>
+    </ul>
+    <div class="medias">
+      <div class="icons">
+        <a href="#" title="Twitter" target="_blank" rel="noopener" class="socials-twitter">
+          <div class="icon-twitter"><i class="fa-brands fa-twitter"></i></div>
+        </a>
+        <a href="#" title="Facebook" target="_blank" rel="noopener" class="socials-facebook">
+          <div class="icon-facebook"><i class="fa-brands fa-facebook"></i></div>
+        </a>
+        <a href="#" title="Instagram" target="_blank" rel="noopener" class="socials-instagram">
+          <div class="icon-intagram"><i class="fa-brands fa-instagram"></i></div>
+        </a>
+        <a href="#" title="Youtube" target="_blank" rel="noopener" class="socials-youtube">
+          <div class="icon-youtube"><i class="fa-brands fa-youtube"></i></div>
+        </a>
+        <a href="#" title="Twitch" target="_blank" rel="noopener" class="socials-twitch">
+          <div class="icon-twitch"><i class="fa-brands fa-twitch"></i></div>
+        </a>
+      </div>
+      <div class="apps">
+        <a href="#" title="Iphone App" target="_blank">
+          <!--<img src="/static/images/apple.png" loading="lazy"> -->
+        </a>
+        <a href="#" title="Android App" target="_blank">
+         <!-- <img src="/static/images/android.png" loading="lazy"> -->
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="Information">
+    <hr>
+    <div class="copyright">Copyright © 2023 Gaming Site - All rights reserved
+    <div class="geo-selected">
+      <div class="icon location">
+        <span class="country"> English </span>
+        <span class="currency">RSD</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
 
 
 {% endblock %}
