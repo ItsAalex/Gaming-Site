@@ -105,11 +105,23 @@ def render_navigation():
     return render_template('navigation.html', rows = rows)
 
 
-@app.route('/primer', methods=['GET','POST'])
-def render_primer():
+@app.route('/productpage', methods=['GET','POST'])
+def render_productpage():
     cursor.execute("SELECT image_url FROM produkti")
     slika = cursor.fetchall() #fetchuj mi sve slike
-    return render_template('primer.html', slika = slika)
+    return render_template('productpage.html', slika = slika)
+
+@app.route('/terms', methods=['GET','POST'])
+def render_terms():
+    return render_template('terms.html')
+
+@app.route('/private', methods=['GET','POST'])
+def render_private():
+    return render_template('private.html')
+
+@app.route('/faq', methods=['GET', 'POST'])
+def render_faq():
+    return render_template('faq.html')
 
 # to keep the application running
 app.run(debug = True)
