@@ -16,44 +16,20 @@ cursor = connection.cursor(dictionary=True) # cursor = variable that allows us t
 app = Flask(__name__)
 app.secret_key = 'acaPukiAleksa'
 
-# Create a cart list in the session to store selected game IDs
-@app.before_request
-def create_cart():
-    if 'cart' not in session:
-        session['cart'] = []
-
-# Add a game to the cart
-@app.route('/add_to_cart/<int:game_id>')
-def render_add_to_cart(game_id):
-    session['cart'].append(game_id)
-    return redirect(url_for("render_navigation"))
-
-# Remove a game from the cart
-@app.route('/remove_from_cart/<int:game_id>')
-def remove_from_cart(game_id):
-    session['cart'].remove(game_id)
-    return redirect(url_for("render_navigation"))
-
-# Display the cart
-@app.route('/cart')
-def render_cart():
-    cart = []
-    total_price = 0
-    for game_id in session['cart']:
-        question = f"SELECT * FROM produkti WHERE id = {game_id}"
-        cursor.execute(question)
-        game = cursor.fetchone()
-        cart.append(game)
-        total_price += game['cena']
-    return render_template('cart.html', cart=cart, total_price=total_price)
-
-# Clear the cart
-@app.route('/clear_cart')
-def clear_cart():
-    session['cart'] = []
-    return redirect(url_for("render_navigation"))
-
 #logic of the application
+
+@app.route('/cart', methods=['GET','POST'])
+def render_cart():
+    if request.method =='GET':
+        return render_template('cart.html')
+    
+@app.route('/productpage/<id>', methods=['GET','POST'])
+def render_productpage(id = 1):
+    query = "SELECT * FROM produkti WHERE id=%s"
+    value = (id,)
+    cursor.execute(query,value)
+    products = cursor.fetchall()
+    return render_template('productpage.html',products = products)
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -66,7 +42,6 @@ def signup():
         query = "SELECT password_hash FROM korisnik WHERE email= %s"
         cursor.execute(query, vrednost)
         user = cursor.fetchone() #zapamtio ga je kao recnik?
-        print('...............................................................',user)
         if user != None:
             if check_password_hash(user["password_hash"], password):
                 flash('You were logged in')
@@ -105,11 +80,11 @@ def render_navigation():
     return render_template('navigation.html', rows = rows)
 
 
-@app.route('/productpage', methods=['GET','POST'])
-def render_productpage():
+@app.route('/primer', methods=['GET','POST'])
+def render_primer():
     cursor.execute("SELECT image_url FROM produkti")
     slika = cursor.fetchall() #fetchuj mi sve slike
-    return render_template('productpage.html', slika = slika)
+    return render_template('primer.html', slika = slika)
 
 @app.route('/terms', methods=['GET','POST'])
 def render_terms():
@@ -122,6 +97,10 @@ def render_private():
 @app.route('/faq', methods=['GET', 'POST'])
 def render_faq():
     return render_template('faq.html')
+
+@app.route('/allgames', methods=['GET', 'POST'])
+def render_allgames():
+    return render_template('allgames.html')
 
 # to keep the application running
 app.run(debug = True)
