@@ -1,0 +1,30 @@
+.private-container {
+    margin-top: 200px;
+    max-width: 1200px;
+    align-self: center;
+    width: 100%;
+    max-width: 800px;
+}
+.readable-private{
+    margin-top: 200px;
+    max-width: 1200px;
+    align-self: center;
+    width: 100%;
+    max-width: 800px;
+    font-family: roboto
+}
+td{
+    border: 1px solid;
+    border-color: #909090;
+    width: 33%;
+    padding: 20px;
+    font-family: roboto;
+    color: #909090;
+}
+.lu-ul{
+    display: block;
+}
+.lili {
+    display: flex;
+    flex-direction: column;
+}

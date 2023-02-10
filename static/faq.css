@@ -1,0 +1,30 @@
+
+
+.faq-container {
+    margin-top: 200px;
+    max-width: 1200px;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px;
+}
+.faq{
+    display: flex;
+    flex-direction: column;
+    margin-top: 200px;
+    max-width: 1200px;
+    align-self: center;
+    width: 100%;
+    max-width: 800px;
+    font-family: roboto
+}
+p{
+    margin-bottom: 30px;
+    font-family: roboto;
+    color: #909090;
+}
+li{
+    font-family: roboto;
+    color: #909090;
+}
