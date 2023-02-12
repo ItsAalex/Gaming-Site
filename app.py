@@ -100,9 +100,17 @@ def render_faq():
 
 @app.route('/allgames', methods=['GET', 'POST'])
 def render_allgames():
-    return render_template('allgames.html')
+    query = "SELECT * FROM produkti" #ako hocu da ga sortira kazem mu: query = "SELECT * FROM produkti where order by popularnost asc/desc"
+    cursor.execute(query) # ako imam vise query-a onda bi izgledalo ovako: query, multi = True
+    rows = cursor.fetchall() #fetchuj mi sve redove iz tabele
+    return render_template('.html', rows = rows)
+
+@app.route('/payment', methods=['GET', 'POST'])
+def render_payment():
+    return render_template('payment.html')
 
 # to keep the application running
 app.run(debug = True)
 connection.close()
+
 
