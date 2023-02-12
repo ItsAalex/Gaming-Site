@@ -15,51 +15,8 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                  <a class="nav-link text-light" href="#pc">
-                    <i class="fa-solid fa-desktop"></i>
-                    PC
-                    <i class="fa-solid fa-chevron-down"></i>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-light" href="#playstation">
-                    <i class="fa-brands fa-playstation"></i>
-                    Playstation
-                    <i class="fa-solid fa-chevron-down"></i>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-light" href="#xbox">
-                    <i class="fa-brands fa-xbox"></i>
-                    Xbox
-                    <i class="fa-solid fa-chevron-down"></i>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-light" href="#nintendo">
-                    <i class="fa-solid fa-gamepad"></i>
-                    Nintendo
-                    <i class="fa-solid fa-chevron-down"></i>
-                  </a>
-                </li>
-              </ul>
-                <li class="nav-item">
-                  <a class="nav-link text-light" href="{{url_for('render_cart')}}">
-                    <i class="fas fa-shopping-cart"></i>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-light" href="{{url_for('signup')}}">
-                    <i class="fa-solid fa-user"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-</header>
+            <div class="collapse navbar-collapse" id="navbarNav">  
+    </header>
 <div class="main-content">
     <div class="cart-container">
         <div class ="cart-left">
@@ -84,7 +41,7 @@
                 <div class="summary-row"><span>Official price</span> <span>0<span>RSD</span></span></div>
                 <div class="summary-row"><span>Discount</span> <span>0<span>RSD</span></span></div>
                 <div class="summary-row1"><span>Subtotal</span> <span>0<span>RSD</span></span></div>
-                <a href="#" class="button gotopayment button-disabled">
+                <a href="{{url_for('render_payment')}}" class="button gotopayment button-disabled">
                     Go to payment
                     <div class="icon-arrow icon-xxs"><i class="fa-regular fa-credit-card"></i></div></a>
                     <span class="choice">or</span>
