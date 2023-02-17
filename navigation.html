@@ -43,6 +43,10 @@
             <i class="fa-solid fa-chevron-down"></i>
           </a>
         </li>
+        <div class="search-container">
+          <input type="text" id="search-input" placeholder="Minecraft" style="display: none;">
+          <button id="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -52,7 +56,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link text-light" href="{{url_for('signup')}}">
-            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-user" id="signup"></i>
           </a>
         </li>
       </ul>
@@ -66,15 +70,15 @@
       <div class="header-top-gradient" style="background: linear-gradient(#041010 0%, transparent 100%); opacity: 0.6;">
         <img src="{{rows[0]["Background"]}}" onclick="location.href='{{url_for('render_productpage',id= rows[0]['id'])}}';" alt="Poter Hari"> 
         <div class="content-game">
-          <a class="full-link" href="{{url_for('render_productpage',id= rows[0]['id'])}}"></a>
+          <a class="full-link" href="href="{{url_for('render_productpage',id= rows[0]['id'])}}"></a>
           <span class="banner-title">{{rows[0]["ime"]}}</span>
           <div class="numbers">
             <span class="discount">
-              -{{rows[0]['popust']}}%
+              -24%
             </span>
             <span class="price">
-              {{rows[0]['cenaNova']}}
-              <span>USD</span>
+              4998.69
+              <span>RSD</span>
             </span> 
           </div>
         </div>
@@ -84,14 +88,13 @@
 <div class="products-trending">
   <div class="headline">
     <h2>Trending</h2>
-    <a href="#" title="Trending" class="button button-secondary">View all</a>
+    <a href="{{url_for('render_allgames')}}" title="Trending" class="button button-secondary">View all</a>
   </div>
   <div class="listing-games">
     {% for produkt in rows %}
     <div class="item" id="games-item-1">
       <div class="pic">
-        <img class="picture" src="{{produkt["image_url"]}}" loading="lazy" onload="lazyLoadImage(this)" onclick="location.href='{{url_for('render_productpage',id=produkt.id)}}';"> <!--U listi se nalazi vise dictionary-a(produkt)
-        takodje, odavde ce on da uzme parametar id i da ga posalje funkciji render_productpage-->
+        <img class="picture" src="{{produkt["image_url"]}}" loading="lazy" onload="lazyLoadImage(this)" onclick="location.href='{{url_for('render_productpage',id=produkt.id)}}';" loading="lazy" onload="lazyLoadImage(this)"> <!--U listi se nalazi vise dictionary-a(produkt)-->
       </div>
         <div class="discount">
           {% if produkt.popust %}
@@ -101,12 +104,12 @@
         <div class="information">
           <div class="text">
             <div class="name">
-              <div class="title">{{produkt.ime}}</div>
+              <span class="title">{{produkt.ime}}</span>
             </div>
           </div>
        <div class="price">
-          {{produkt.cenaNova}}
-        <span>USD</span>
+          {{produkt.cena}}
+        <span>RSD</span>
           </div>
         </div>
       </div>
@@ -120,19 +123,19 @@
         <div class="links">
           <a href="#" class="logo">
           </a>
-        </div>
         <ul class="list">
           <li>
-            <a class="sublinks" rel="nofollow" href="#">Terms of Use</a>
+            <a class="sublinks" rel="nofollow" href="{{url_for('render_terms')}}">Terms of Use</a>
           </li>
           <li>
-            <a class="sublinks" rel="nofollow" href="#">Privacy policy</a>
+            <a class="sublinks" rel="nofollow" href="{{url_for('render_private')}}">Privacy policy</a>
           </li>
           <li>
-            <a class="sublinks" rel="nofollow" href="#">Contact us</a>
+            <a class="sublinks" rel="nofollow" href="{{url_for('signup')}}">Contact us</a>
           </li>
-          <a class="sublinks" rel="nofollow" href="#">FAQ</a>
+          <a class="sublinks" rel="nofollow" href="{{url_for('render_faq')}}">FAQ</a>
         </ul>
+        </div>
         <div class="medias">
           <div class="icons">
             <a href="#" title="Twitter" target="_blank" rel="noopener" class="socials-twitter">
@@ -167,7 +170,7 @@
         <div class="geo-selected">
           <div class="icon location">
             <span class="country"> English </span>
-            <span class="currency">USD</span>
+            <span class="currency">RSD</span>
             </div>
           </div>
         </div>
