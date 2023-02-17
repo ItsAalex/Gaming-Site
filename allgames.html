@@ -1,0 +1,165 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body class="gamingsite-home">
+  
+
+    <header class="header-container" id="header">
+    <!--  NAVIGATION BAR  -->
+      <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+        <a class="navbar-brand" href="{{url_for('render_navigation')}}" title="Home"> <!-- VEZANO ZA HOME PAGE -->
+          <img  class="logo"src="/static/images/logos.png" width="50" height="50" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#pc">
+                <i class="fa-solid fa-desktop"></i>
+                PC
+                <i class="fa-solid fa-chevron-down"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#playstation">
+                <i class="fa-brands fa-playstation"></i>
+                Playstation
+                <i class="fa-solid fa-chevron-down"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#xbox">
+                <i class="fa-brands fa-xbox"></i>
+                Xbox
+                <i class="fa-solid fa-chevron-down"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#nintendo">
+                <i class="fa-solid fa-gamepad"></i>
+                Nintendo
+                <i class="fa-solid fa-chevron-down"></i>
+              </a>
+            </li>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Minecraft" style="display: none;">
+                <button id="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+              </div>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link text-light" href="{{url_for('render_cart')}}">
+                <i class="fas fa-shopping-cart"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="{{url_for('signup')}}">
+                <i class="fa-solid fa-user"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <!--  END OF NAVIGATION BAR -->
+    </header>
+    <div class="main-content">
+    <div class="separator-sep"></div>
+    <div class="products-trending">
+        <div class="headline">
+          <h2>Trending</h2>
+        </div>
+        <div class="listing-games">
+          {% for produkt in rows %}
+          <div class="item" id="games-item-1">
+            <div class="pic">
+              <img class="picture" src="{{produkt["image_url"]}}" loading="lazy" onload="lazyLoadImage(this)" onclick="location.href='{{url_for('render_productpage',id=produkt.id)}}';" loading="lazy" onload="lazyLoadImage(this)" loading="lazy" onload="lazyLoadImage(this)"> <!--U listi se nalazi vise dictionary-a(produkt)-->
+            </div>
+              <div class="discount">
+                {% if produkt.popust %}
+                {%- raw %} -{% endraw -%} {{produkt.popust}} {%- raw %}% {% endraw %}
+                {% endif %}
+              </div>
+              <div class="information">
+                <div class="text">
+                  <div class="name">
+                    <span class="title">{{produkt.ime}}</span>
+                  </div>
+                </div>
+             <div class="price">
+                {{produkt.cena}}
+              <span>RSD</span>
+                </div>
+              </div>
+            </div>
+      {% endfor %}        
+          </div>
+        </div> 
+          <div class="separator"></div>
+          <footer class="footer-container">
+            <div class="content">
+              <div class="links">
+                <a href="#" class="logo">
+                </a>
+              <ul class="list">
+                <li>
+                  <a class="sublinks" rel="nofollow" href="{{url_for('render_terms')}}">Terms of Use</a>
+                </li>
+                <li>
+                  <a class="sublinks" rel="nofollow" href="{{url_for('render_private')}}">Privacy policy</a>
+                </li>
+                <li>
+                  <a class="sublinks" rel="nofollow" href="#">Contact us</a>
+                </li>
+                <a class="sublinks" rel="nofollow" href="{{url_for('render_faq')}}">FAQ</a>
+              </ul>
+              </div>
+              <div class="medias">
+                <div class="icons">
+                  <a href="#" title="Twitter" target="_blank" rel="noopener" class="socials-twitter">
+                    <div class="icon-twitter"><i class="fa-brands fa-twitter"></i></div>
+                  </a>
+                  <a href="#" title="Facebook" target="_blank" rel="noopener" class="socials-facebook">
+                    <div class="icon-facebook"><i class="fa-brands fa-facebook"></i></div>
+                  </a>
+                  <a href="#" title="Instagram" target="_blank" rel="noopener" class="socials-instagram">
+                    <div class="icon-intagram"><i class="fa-brands fa-instagram"></i></div>
+                  </a>
+                  <a href="#" title="Youtube" target="_blank" rel="noopener" class="socials-youtube">
+                    <div class="icon-youtube"><i class="fa-brands fa-youtube"></i></div>
+                  </a>
+                  <a href="#" title="Twitch" target="_blank" rel="noopener" class="socials-twitch">
+                    <div class="icon-twitch"><i class="fa-brands fa-twitch"></i></div>
+                  </a>
+                </div>
+                <div class="apps">
+                  <a href="#" title="Iphone App" target="_blank">
+                    <!--<img src="/static/images/apple.png" loading="lazy"> -->
+                  </a>
+                  <a href="#" title="Android App" target="_blank">
+                   <!-- <img src="/static/images/android.png" loading="lazy"> -->
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="Information">
+              <hr>
+              <div class="copyright">Copyright © 2023 Gaming Site - All rights reserved
+              <div class="geo-selected">
+                <div class="icon location">
+                  <span class="country"> English </span>
+                  <span class="currency">RSD</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </footer>
+      </div>
+      </div>
+      </div>
+      </div>
+      </body>
+    {% endblock %}
