@@ -25,13 +25,27 @@
             </div>
             <div class="cart-listing">
                 <div class="cart-empty">
+                    {% if product|length == 0 %}
                     <div class="icon-cart">
                       <i class="fa-solid fa-cart-shopping"></i>
                         <!--<img class="icart" data-src="#" alt="icon cart" src=""  loading="lazy" onload="lazyLoadImage(this)"> -->
                     </div>
                     <h2 class="title">Your cart is empty</h2>
                     <span class="content">You didn't add any item in your cart yet. Browse the website to find amazing deals!</span>
-                    <a href="#" class="button button-secondary">Discover games</a>
+                    <a href="{{url_for('render_allgames')}}" class="button button-secondary">Discover games</a>
+                    {% else  %}
+                        {% for produkt in product %}
+                            <div class="pic">
+                                <img class="picture" src="{{produkt["image_url"]}}" loading="lazy" onload="lazyLoadImage(this)" onclick="location.href='{{url_for('render_productpage',id=produkt.id)}}';" loading="lazy" onload="lazyLoadImage(this)"> <!--U listi se nalazi vise dictionary-a(produkt)-->
+                            </div>
+                            <span class="title">{{produkt.ime}}</span>
+                            <div class="price">
+                                {{produkt.cena}}
+                                <span>USD</span>
+                            </div>
+                            <a href="{{url_for('cartdelete', id=produkt.id)}}" class="button button-secondary"><button>delete</button></a>
+                        {% endfor %}
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -45,7 +59,7 @@
                     Go to payment
                     <div class="icon-arrow icon-xxs"><i class="fa-regular fa-credit-card"></i></div></a>
                     <span class="choice">or</span>
-                    <a href="/" class="back"><div class="icon-arrow">
+                    <a href="{{url_for('render_allgames')}}" class="back"><div class="icon-arrow">
                       <i class="fa-solid fa-chevron-left"></i>
                     </div>
                         Continue shopping
