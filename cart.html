@@ -52,9 +52,9 @@
         <div class= "cart-right">
             <h2>Summary</h2>
             <div class="cart-summary">
-                <div class="summary-row"><span>Official price</span> <span>0<span>RSD</span></span></div>
-                <div class="summary-row"><span>Discount</span> <span>0<span>RSD</span></span></div>
-                <div class="summary-row1"><span>Subtotal</span> <span>0<span>RSD</span></span></div>
+                <div class="summary-row"><span>Official price</span> <span>{{cenaSuma}}<span>USD</span></span></div>
+                <div class="summary-row"><span>Discount</span> <span>{{discount}}<span>USD</span></span></div>
+                <div class="summary-row1"><span>Subtotal</span> <span>{{novaCenaSuma}}<span>USD</span></span></div>
                 <a href="{{url_for('render_payment')}}" class="button gotopayment button-disabled">
                     Go to payment
                     <div class="icon-arrow icon-xxs"><i class="fa-regular fa-credit-card"></i></div></a>
