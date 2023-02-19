@@ -59,6 +59,11 @@
             <i class="fa-solid fa-user" id="signup"></i>
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="{{url_for('signup')}}">
+            <button>logout</button>
+          </a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -74,11 +79,11 @@
           <span class="banner-title">{{rows[0]["ime"]}}</span>
           <div class="numbers">
             <span class="discount">
-              -24%
+              -{{rows[0]["popust"]}}%
             </span>
             <span class="price">
-              4998.69
-              <span>RSD</span>
+              {{rows[0]["cenaNova"]}}
+              <span>USD</span>
             </span> 
           </div>
         </div>
@@ -109,7 +114,7 @@
           </div>
        <div class="price">
           {{produkt.cena}}
-        <span>RSD</span>
+        <span>USD</span>
           </div>
         </div>
       </div>
@@ -170,7 +175,7 @@
         <div class="geo-selected">
           <div class="icon location">
             <span class="country"> English </span>
-            <span class="currency">RSD</span>
+            <span class="currency">USD</span>
             </div>
           </div>
         </div>
