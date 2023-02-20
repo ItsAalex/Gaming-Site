@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body class="gamingsite-payment">
+    <header class="header-container" id="header">
+    <!--  NAVIGATION BAR  -->
+      <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+        <a class="navbar-brand" href="{{url_for('render_navigation')}}" title="Home"> <!-- VEZANO ZA HOME PAGE -->
+          <img  class="logo"src="/static/images/logos.png" width="50" height="50" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+</header>
+<div class="main-content">
+    <div class="payment-container">
+        <div class ="payment-platforms">
+            <div class="cart-section">
+                <h2>Payment method</h2>
+                <div class="container p-0">
+                    <div class="card px-4">
+                        <p class="h8 py-3">Payment Details</p>
+                        <div class="row gx-3">
+                            <div class="col-12">
+                                <div class="d-flex flex-column">
+                                    <p class="text mb-1">Person Name</p>
+                                    <input class="form-control mb-3" type="text" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex flex-column">
+                                    <p class="text mb-1">Card Number</p>
+                                    <input class="form-control mb-3" type="text" placeholder="1234 5678 435678">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex flex-column">
+                                    <p class="text mb-1">Expiry</p>
+                                    <input class="form-control mb-3" type="text" placeholder="MM/YYYY">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex flex-column">
+                                    <p class="text mb-1">CVV/CVC</p>
+                                    <input class="form-control mb-3 pt-2 " type="password" placeholder="***">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="btn btn-primary mb-3">
+                                    <span class="ps-3">Pay</span>
+                                    <span class="fas fa-arrow-right"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{% endblock %}

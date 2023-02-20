@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header class="header-cart">
+  <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+      <a class="navbar-brand" href="{{url_for('render_navigation')}}" title="Home">
+        <img class="logo" src="/static/images/logos.png" width="50" height="50" alt="Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">  
+</header>
+<body>
+  <div class="row">
+    <div class="col">
+      
+      <div class="product-add-add">
+        {% for product in produkti %}
+        <button class="button-admin" onclick="location.href='{{url_for('render_admin',id=product.id)}}';">{{product.ime}}</button>
+        {% endfor %}
+        <!--
+      <form action="product-adding.php" class="product-adding">
+        
+        <label for="product-product"></label>
+        <input class="button-admin" type="#" value=""><br>
+        
+       
+        
+        <label for="product-product"></label>
+          <input class="button-admin" type="#" value=""><br>
+          
+       
+        <label for="product-product"></label>
+           
+            <input class="button-admin" type="#" value=""><br>
+
+        <label for="product-product"></label>
+ 
+         <input class="button-admin" type="#" value=""><br>
+        
+       
+        
+        <label for="product-product"></label>
+          <input class="button-admin" type="#" value=""><br>
+          
+       
+        <label for="product-product"></label>
+          
+        <input class="button-admin" type="#" value=""><br>
+        
+      </form> -->
+      <button class="button-admin" value="add" onclick="location.href='{{url_for('productadd')}}';">Add</button>
+    </div>
+    </div>
+    <div class="col-5">
+      <span class="admin-addproduct">Edit</span>
+
+            <div class="cart-listing">
+            <p class="admin-text">Click on "Choose File" for add photo</p>
+    <form action="/action_page.php">
+    <input class="myfile" type="file" id="myFile" name="filename">
+    </form>
+    <form action="{{url_for('render_admin',id=produkti2[0].id)}}" method="POST" class="forma">
+    <label for="ime">Ime:</label>
+    <input type="text" value="{{produkti2[0].ime}}" id="ime" name="Naziv"><br>
+
+    <label for="prezime">Deskripcija:</label>
+    <input type="text" value="{{produkti2[0].deskripcija}}" id="opis" name="opis"><br>
+
+    <label for="email">Cena:</label>
+    <input type="text" value="{{produkti2[0].cena}}"id="cena" name="cena"><br>
+
+    <label for="email">Dostupnost:</label>
+    <input type="text" value="{{produkti2[0].dostupnost}}" id="dostupnost" name="dostupnost"><br>
+
+    <label for="popularnost">Popularnost:</label>
+    <input type="text" value="{{produkti2[0].popularnost}}" id="popularnost" name="popularnost"><br>
+
+    <label for="popularnost">Sale:</label>
+    <input type="text" value="{{produkti2[0].popust}}" id="popust" name="popust"><br>
+
+    <label for="popularnost">Price with sales:</label>
+    <input type="text" value="{{produkti2[0].cenaNova}}" id="cenaNova" name="cenaNova"><br>
+
+    <label for="imgurl">Image:</label>
+    <input type="text" value="{{produkti2[0].image_url}}" id="imgurl" name="imgurl"><br>
+
+    <label for="developer">Developer:</label>
+    <input type="text" value="{{produkti2[0].Developer}}" id="developer" name="developer"><br>
+
+    <label for="publisher">Publisher:</label>
+    <input type="text" value="{{produkti2[0].Publisher}}" id="publisher" name="publisher"><br>
+
+    <label for="releasedate">Release Date:</label>
+    <input type="text" value="{{produkti2[0].ReleaseDate}}"id="releasedate" name="releasedate"><br>
+
+    <label for="genre">Genre:</label>
+    <input type="text" value="{{produkti2[0].Genre}}" id="genre" name="genre"><br>
+
+    <label for="background">Background:</label>
+    <input class="myfile" value="{{produkti2[0].Background}}" type="text" id="background" name="background">
+  <input class="button" type="submit" value="Save">
+</form>
+
+<div class="modal fade" id="modalDelProduct{{produkti2[0].id}}" role="dialog">
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure that you want to delete {{produkti2[0].ime}}</p>
+        </div>
+        <div class="modal-footer">
+            <form action="{{url_for('productdelete',id=produkti2[0].id)}}" method="post">
+                <input type="submit" class="button" value="Delete">
+            </form>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+</div>
+        <button class="button"data-toggle="modal" data-target="#modalDelProduct{{produkti2[0].id}}">Delete</button>
+                </div>
+                </div>         
+    <div class="coll">
+      <span class="admin-users">Users</span>
+      {% for user in korisnik %}
+        <ul>
+            <li class="imena">{{user.ime}}
+                <button  class="btn btn-danger" style="width: 20px; height:20px;display: flex;justify-content: center;align-items: center;margin-left: 10px;"  data-toggle="modal" data-target="#modalDelUser{{user.id}}">
+                    <i class="fas fa-trash"></i>
+                    </button>
+                    <div class="modal fade" id="modalDelUser{{user.id}}" role="dialog">
+                        <div class="modal-dialog">
+
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                              <p>Are you sure that you want to delete user {{user.ime}}</p>
+                            </div>
+                            <div class="modal-footer">
+                            <form action="{{url_for('userdelete', id=user.id)}}" method="post" >
+                            <button  class="btn btn-danger">Delete</button>
+                            </form>
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+
+                        </div>
+                    </div>
+                </li>
+        </ul>
+      {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+
+
+{% endblock %}

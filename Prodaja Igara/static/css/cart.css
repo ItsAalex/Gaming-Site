@@ -1,0 +1,231 @@
+/*------------------------------------------------------------------ Odavde ide CART PAGE CSS-------------------------------------------------------------------------- */
+/* Center the container and items within the row */
+
+.header-cart{
+    width: 100%;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    background-color: transparent;
+    transition: .2s;
+    margin-bottom: -73px;
+}
+.main-content{
+        display: flex;
+        flex-direction: column;
+        margin-right: 30px;
+        height: 100%;
+}
+.cart-container{
+    max-width: 1200px;
+    align-self: center;
+    width: 100%;
+    display: flex;
+    margin-top: 140px;
+    align-items: flex-start;
+}
+.cart-left{
+    flex:1 1;
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0;
+
+}
+
+h2{
+    font-size: 23px;
+}
+.cart-listing{
+    border-radius: 15px;
+    padding: 30px;
+    background-color: #323232;
+}
+
+.cart-empty{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px;
+    text-align: center;
+}
+
+.input_box input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding-left: 50px;
+    font-size: 17px;
+    transition: all 0.3s ease;
+}
+.button input {
+    padding-left: 0;
+    background: red;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+.icon-cart{
+    margin-bottom: 30px;
+    height: 50px;
+    width: 62px;
+    flex: 0 0 50px;
+    padding-top: 30px;
+}
+.content{
+    color: var(--color-light);
+    max-width: 500px;
+    text-align: center;
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.cart-right{
+    position: sticky;
+    top: 140px;
+    margin-left: 60px;
+    flex: 0 1 33%;
+}
+
+.cart-summary{
+    border-radius: 15px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    background-color: #323232;
+}
+.sumarry-row{
+    color: #909090;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: flex-end;
+}
+.summary-row{
+    color: #909090;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: flex-end;
+}
+.summary-row1{
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+form .input_box{
+    background-color: red;
+}
+.button {
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 17px;
+    background-color: #3d3d3d;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 56px;
+    box-sizing: border-box;
+    padding: 0 30px;
+    transition: .2s;
+    border: 0;
+    cursor: pointer;
+    text-align: center;
+    white-space: normal;
+}
+.button:hover{
+    background-color: red;
+}
+a.button.button-secondary{
+    color: white;
+}
+.icart{
+    width: 20px;
+    height: 20px;
+}
+a.button.gotopayment.button-disabled{
+    color: white;
+}
+
+.icon-arrow{
+    transform: scale(.8);
+    margin-left: 10px;
+    width: 30px;
+    height: 22px;
+    flex: 0 0 15px;
+}
+.choice{
+    color: #909090;
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+.choice:before{
+    content: "";
+    background-color: hsla(0,0%,100%,.1);
+    height: 1px;
+    width: 100%;
+    top: 9px;
+    position: relative;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.choice:after{
+    content: "";
+    background-color: hsla(0,0%,100%,.1);
+    height: 1px;
+    width: 100%;
+    top: 9px;
+    position: relative;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.back{
+    font-weight: 700;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.back:hover{
+    color:red;
+}
+.separator-wide{
+    height: 80px;
+}
+.navbar-dark .navbar-brand {
+    color: #fff;
+}
+.img{
+    width: 76px;
+    height: 78px;
+}
+.navbar{
+    width: 100%;
+}
+h2{
+    font-size: 23px;
+    font-family: roboto;
+
+}
+.navbar-dark .navbar-nav .nav-link{
+    font-family: roboto;
+}
+#navbar {
+    transition: background-color 0.5s ease;
+ }
+li.nav-item{
+    list-style-type: none; 
+}

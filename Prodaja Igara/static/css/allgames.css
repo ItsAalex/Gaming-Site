@@ -1,0 +1,36 @@
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-top: -5px;
+}
+  
+  #search-input {
+    border: 1px solid darkred;
+    padding: 10px;
+    margin-right: 10px;
+    background-color: darkred;
+    border-radius: 30px;
+}
+  
+  #search-button {
+    background-color:darkred;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 30px;
+    color: white;
+}
+
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: roboto;
+    font-size: inherit;
+    line-height: inherit;
+}
+ #search-input::placeholder{
+    color: white;
+}
+.separator-sep{
+  height: 100px;
+  width: 100%;
+}
