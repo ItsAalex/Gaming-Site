@@ -33,16 +33,23 @@
     margin-top: 140px;
     align-items: flex-start;
 }
+
 .col{
-    flex-basis: 0;
-    flex-grow: 1;
     font-size: 28px;
     font-family: roboto;
     display: flex;
-    max-width: 25%;
-    justify-content: center;
+    width: 450px;
+    margin: 50px;
     margin-top: 150px;
+    justify-content: center;
 
+}
+.coll{
+    font-size: 28px;
+    font-family: roboto;
+    width: 400px;
+    margin: 40px;
+    margin-top: 150px;
 }
 .col-5 {
     -ms-flex: 0 0 50%;
@@ -59,22 +66,134 @@
     font-family: roboto;
     font-size: 28px;
 }
-.admin-products{
+.admin-product{
     font-family: roboto;
     font-size: 28px;
+    width: 420px;
+    height: 40px;
 }
 .admin-users{
     font-family: roboto;
     font-size: 28px;
+    width: 450px;
+    height: 40px;
 }
 form{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     font-size: 20px;
+    margin-top: 50px;
 }
 .myfile{
     color: darkred;
+    background-color: #3D3D3D;
+    display: flex;
+    align-self: center;
 }
 #file-upload-button{
     color: darkred;
+}
+
+.forma{
+    display: flex;
+    flex-direction: column;
+}
+#ime{
+    background-color: #3D3D3D;
+    color: white;
+}
+#opis{
+    background-color: #3D3D3D;
+    color: white;
+}
+#tip-igrice{
+    background-color: #3D3D3D;
+    color: white;
+}
+#cena{
+    background-color: #3D3D3D;
+    color: white;
+}
+#dostupnost{
+    background-color: #3D3D3D;
+    color: white;
+}
+#popularnost{
+    background-color: #3D3D3D;
+    color: white;
+}
+#releasedate{
+    background-color: #3D3D3D;
+    color: white;
+}
+#genre{
+    background-color: #3D3D3D;
+    color: white;
+}
+
+#imgurl{
+    background-color: #3D3D3D;
+    color: white;
+}
+#developer{
+    background-color: #3D3D3D;
+    color: white;
+}
+#publisher{
+    background-color: #3D3D3D;
+    color: white;
+}
+.product-adding{
+    display: flex;
+    flex-direction: column;
+
+}
+.product-add-add{
+    display: flex;
+    flex-direction: column;
+
+}
+.button-admin{
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 17px;
+    background-color: #3d3d3d;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 56px;
+    box-sizing: border-box;
+    padding: 0 30px;
+    transition: .2s;
+    border: 0;
+    cursor: pointer;
+    text-align: center;
+    white-space: normal;
+    width: 350px;
+}
+.buttonforadmin{
+    display: flex;
+    width: 350px;
+}
+.us-users{
+    display: flex;
+    flex-direction: column;
+}
+.imena{
+    color: white;
+    font-family: roboto;
+    font-size: 28px;
+}
+.user-users{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: normal;
+}
+.imena{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-around;
 }
