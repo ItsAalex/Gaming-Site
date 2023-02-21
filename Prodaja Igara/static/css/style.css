@@ -12,7 +12,7 @@ img {
     width: 100%;
     height: 500px;
     object-fit: cover;
-    display: absolute;
+    display: absolute; 
 }
 .logo {
     width: 76px;
@@ -129,7 +129,24 @@ h2{
 #navbar {
     transition: background-color 0.5s ease;
  }
- 
+
+.navbar-expand-lg .navbar-collapse {
+    display: -ms-flexbox!important;
+    display: flex!important;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    align-items: center;
+}
+.search-bar{
+    display:flex;
+    margin-bottom: 50px; 
+}
+.navbar-expand-lg .navbar-nav {
+    -ms-flex-direction: row;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 a.full-link {
     position: absolute;
     top: 22%;
@@ -431,3 +448,8 @@ hr {
     width: 100%;
     margin-left: 320px;
 }
+
+.logout-dugme{
+    background-color: transparent;
+}
+
