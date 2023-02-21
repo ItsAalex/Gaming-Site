@@ -1,3 +1,25 @@
+.header-container {
+    width: 100%;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    background-color: transparent;
+    transition: .2s;
+    margin-bottom: -73px;
+    margin: 0;
+    font-size: 15px;
+    color: #fff;
+}
+
+.scrolled {
+    background-color: black !important;
+}
+
 .admin-content{
     max-width: 945px;
     align-self: center;
@@ -40,7 +62,7 @@
     display: flex;
     width: 450px;
     margin: 50px;
-    margin-top: 150px;
+    margin-top: 195px;
     justify-content: center;
 
 }
@@ -75,8 +97,9 @@
 .admin-users{
     font-family: roboto;
     font-size: 28px;
+    display: flex;
     width: 450px;
-    height: 40px;
+    height: 60px;
 }
 form{
     display: flex;
@@ -123,6 +146,14 @@ form{
     color: white;
 }
 #releasedate{
+    background-color: #3D3D3D;
+    color: white;
+}
+#sale{
+    background-color: #3D3D3D;
+    color: white;
+}
+#pricewithsales{
     background-color: #3D3D3D;
     color: white;
 }
@@ -194,6 +225,10 @@ form{
 .imena{
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-around;
+}
+.dugmad{
+    display: flex;
+    justify-content: space-between;
 }
