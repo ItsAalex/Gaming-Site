@@ -22,6 +22,22 @@
             <i class="fa-solid fa-chevron-down"></i>
           </a>
         </li>
+        <div class="pc-active" id="pc-active">
+          <div class="pc-panel" id="pc-panel">
+              <div class="pc-content" id="pc-content">
+                      <span class="menu">
+                          <span>Platforms</span>
+                          <a href="{{url_for('render_navigation')}}">View all</a>
+                      </span>
+                      <div class="platform-container">
+                          <a href="#"></a>
+                          <a href="#">Origin</a>
+                          <a href="#">Ubisoft</a>
+                          <a href="#">Epic</a>
+                      </div>
+              </div>
+          </div>
+        </div>
         <li class="nav-item">
           <a class="nav-link text-light" href="#playstation">
             <i class="fa-brands fa-playstation"></i>
@@ -29,6 +45,20 @@
             <i class="fa-solid fa-chevron-down"></i>
           </a>
         </li>
+        <div class="ps-active" id="ps-active">
+          <div class="ps-panel" id="ps-panel">
+              <div class="ps-content">
+                      <span class="ps-menu">
+                          <span>Consoles</span>
+                          <a href="{{url_for('render_navigation')}}">View all</a>
+                      </span>
+                      <div class="ps-platform-container">
+                          <a href="#">Playstation 4</a>
+                          <a href="#">Playstation 5</a>
+                      </div>
+              </div>
+          </div>
+      </div>
         <li class="nav-item">
           <a class="nav-link text-light" href="#xbox">
             <i class="fa-brands fa-xbox"></i>
@@ -36,6 +66,20 @@
             <i class="fa-solid fa-chevron-down"></i>
           </a>
         </li>
+        <div class="xbox-active" id="xbox-active">
+          <div class="xbox-panel" id="xbox-panel">
+              <div class="xbox-content">
+                      <span class="xbox-menu">
+                          <span>Consoles</span>
+                          <a href="{{url_for('render_navigation')}}">View all</a>
+                      </span>
+                      <div class="xbox-platform-container">
+                          <a href="#">Xbox ONE</a>
+                          <a href="#">Xbox Series XS</a>
+                      </div>
+              </div>
+          </div>
+      </div>
         <li class="nav-item">
           <a class="nav-link text-light" href="#nintendo">
             <i class="fa-solid fa-gamepad"></i>
@@ -43,8 +87,21 @@
             <i class="fa-solid fa-chevron-down"></i>
           </a>
         </li>
+        <div class="nintendo-active" id="nintendo-active">
+          <div class="nintendo-panel" id="nintendo-panel">
+              <div class="nintendo-content">
+                      <span class="nintendo-menu">
+                          <span>Consoles</span>
+                          <a href="{{url_for('render_navigation')}}">View all</a>
+                      </span>
+                      <div class="nintendo-platform-container">
+                          <a href="#">Nintendo Switch</a>
+                      </div>
+              </div>
+          </div>
+      </div>
         <div class="search-container">
-          <form action="{{ url_for('render_navigation') }}" method="POST">
+          <form class="search-bar" action="{{ url_for('render_navigation') }}" method="POST">
             <input type="text" name="search" id="search-input" placeholder="Minecraft">
             <button type="submit" id="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
@@ -66,7 +123,7 @@
           {% else %}
             <li class="nav-item">
                 <a class="nav-link text-light" href="{{url_for('logout')}}">
-                    <button>logout</button>
+                     <i class="fa-solid fa-right-from-bracket"></i>
                 </a>
             </li>
         {% endif %}
